@@ -43,12 +43,12 @@ Calendar points to the ShulCloud calendar (thesms.org/cal.php).
 Other pages: `/concept-a` (older video-first concept), `/review` (internal
 review notes).
 
-## Contact form
+## Contact page
 
-The Contact page form uses Netlify Forms. After the first upload, in Netlify go
-to Project configuration → Forms, make sure form detection is on, and under
-Form notifications add an email notification to office@thesms.org. Messages
-also appear under Forms → "contact".
+The Contact page carries the same wording and links as the old
+thesms.org/contact-us page (Ron's email, office phone, Join Now and New Member
+Intake buttons, testimonials, address and parking). It has no form of its own.
+`src/components/ContactForm.jsx` (a Netlify form) is kept but unused.
 
 ## Photos
 
@@ -66,14 +66,29 @@ npm run build            # makes dist/ — this is what goes to Netlify
 
 ## How the site reaches thesms.org (ShulCloud)
 
-All pages live on Netlify. Each thesms.org page shows one of them through the
-embed code in the `shulcloud/` folder (file name = ShulCloud page). Paste it
-once in the page's HTML/Source view; later changes only need a Netlify upload.
+All pages live on Netlify. Each thesms.org page shows one of them through a
+code in the `shulcloud/` folder (file name = ShulCloud page). In ShulCloud:
+open the page → Start Editing → add a code element → paste → save. It is
+pasted once; later changes publish through GitHub/Netlify by themselves.
 Calendar, donations, login and forms stay native ShulCloud pages.
 
-When a page is shown inside thesms.org it hides its own menu bar (ShulCloud's
-menu is above it) and its links open the matching thesms.org page. That list is
-`SHULCLOUD_PAGES` in `src/content/site.js`.
+Each code:
+- hides ShulCloud's own header, menu, sidebars, page title and footer on that
+  page only (CSS inside the code), and widens the content to full width;
+- loads the page with `?embed=1&nav=1`, so the site shows its own menu bar
+  and Member Login link, and every link opens the matching thesms.org page.
+
+Regenerate all codes after changing the template:
+`python3 scripts/make-shulcloud-codes.py` (it keeps each file's page path).
+To add a page code, create `shulcloud/<shulcloud-page>.html` containing
+`<iframe src="https://admirable-parfait-20b24a.netlify.app/<path>?embed=1">`
+and run the script.
+
+Which thesms.org page each menu item opens is `SHULCLOUD_PAGES` in
+`src/content/site.js` (About Us → about-us.html, Worship → worship1.html,
+Holocaust Torah → our-holocaust-torah-new.html, Rabbi Shira → rabbi-shira.html,
+Activities → activities.html, Education → education5.html, Events →
+events.html, Join → join.html, Contact → contact-us).
 
 ## Editing dashboard (for the office)
 
@@ -93,3 +108,13 @@ Once the Netlify project is linked to the GitHub repository, every change
 pushed to GitHub (including dashboard saves) publishes automatically.
 Without GitHub: run `npm run build` and drag the `dist` folder onto the
 Netlify project's Deploys page.
+
+## Rules for changes
+
+- Real photos of the congregation only (from thesms.org or
+  thesantamonicasynagogue.org). No stock or AI images.
+- Keep the ShulCloud form links (Join Now, New Member Intake, Donate, High
+  Holy Days, calendar, login) exactly as they are in settings.json.
+- Keep existing wording word for word unless asked to change it.
+- The GitHub repository is public so Netlify builds commits from anyone;
+  never commit passwords or keys.
