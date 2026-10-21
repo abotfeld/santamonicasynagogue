@@ -67,7 +67,7 @@ export const NAV_LINKS = [
 export const SHULCLOUD_PAGES = {
   "/": "https://www.thesms.org/",
   "/about": "https://www.thesms.org/about-us.html",
-  "/worship": "https://www.thesms.org/worship.html",
+  "/worship": "https://www.thesms.org/worship1.html",
   "/our-holocaust-torah": "https://www.thesms.org/our-holocaust-torah-new.html",
   "/coaching": "https://www.thesms.org/rabbi-shira.html",
   "/connect": "https://www.thesms.org/activities.html",
