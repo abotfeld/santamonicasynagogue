@@ -16,7 +16,8 @@ TEMPLATE = r'''<div id="sms-embed-root">
   #content > .right_box2, .breadcrumbpaginationh1section, #footer {
     display: none !important;
   }
-  #content, #maincontent_sidebar_wrapper, #maincontent, #maincontent .pad-helper {
+  #content, #maincontent_sidebar_wrapper, #maincontent, #maincontent .pad-helper,
+  #maincontent .content_container, #maincontent .movable_area, #maincontent .content_body {
     width: 100% !important; max-width: none !important;
     margin: 0 !important; padding: 0 !important; float: none !important;
     border: 0 !important; box-shadow: none !important; min-height: 0 !important;
