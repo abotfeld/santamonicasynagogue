@@ -62,14 +62,14 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
         <header
           className={`sticky top-0 z-40 transition-all duration-300 ${solid ? "bg-white/92 backdrop-blur-xl shadow-[0_6px_28px_-18px_rgba(11,58,91,0.5)]" : "bg-transparent"}`}
         >
-          <div className="container flex items-center justify-between py-3 gap-2 sm:gap-4">
+          <div className="container flex items-center justify-between py-3 gap-2 sm:gap-4 lg:gap-2 xl:gap-4">
             <Wordmark tone={solid ? "dark" : "light"} compact={scrolled} />
-            <nav className="hidden xl:flex items-center gap-0">
+            <nav className="hidden lg:flex items-center gap-0">
               {NAV_LINKS.map((link) => (
                 <SmartLink
                   key={link.href}
                   href={link.href}
-                  className={`whitespace-nowrap px-2 py-2 rounded-full text-[0.98rem] font-medium transition-colors duration-200 ${solid ? "text-[var(--color-ink)] hover:text-[var(--color-turquoise-deep)] hover:bg-[var(--color-cyan-pale)]" : "text-white/90 hover:text-white hover:bg-white/12"}`}
+                  className={`whitespace-nowrap px-[3px] xl:px-1.5 2xl:px-2 py-2 rounded-full text-[0.84rem] xl:text-[0.92rem] 2xl:text-[0.98rem] font-medium transition-colors duration-200 ${solid ? "text-[var(--color-ink)] hover:text-[var(--color-turquoise-deep)] hover:bg-[var(--color-cyan-pale)]" : "text-white/90 hover:text-white hover:bg-white/12"}`}
                 >
                   {link.label}
                 </SmartLink>
@@ -80,7 +80,7 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
                 href={LINKS.intake}
                 target="_blank"
                 rel="noreferrer"
-                className={`hidden sm:inline-flex sms-btn whitespace-nowrap !px-5 !py-2.5 !text-[1.02rem] ${solid ? "sms-btn-solid" : "sms-btn-ghost"}`}
+                className={`hidden sm:inline-flex lg:hidden 2xl:inline-flex sms-btn whitespace-nowrap !px-5 !py-2.5 !text-[1.02rem] ${solid ? "sms-btn-solid" : "sms-btn-ghost"}`}
               >
                 Join Us
               </a>
@@ -96,7 +96,7 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
                 type="button"
                 onClick={() => setMenuOpen((open) => !open)}
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
-                className={`xl:hidden p-2 sm:p-2.5 rounded-full transition-colors ${solid ? "text-[var(--color-pacific)] hover:bg-[var(--color-cyan-pale)]" : "text-white hover:bg-white/15"}`}
+                className={`lg:hidden p-2 sm:p-2.5 rounded-full transition-colors ${solid ? "text-[var(--color-pacific)] hover:bg-[var(--color-cyan-pale)]" : "text-white hover:bg-white/15"}`}
               >
                 {menuOpen ? (
                   <X className="h-6 w-6" />
@@ -107,7 +107,7 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
             </div>
           </div>
           {menuOpen && (
-            <div className="xl:hidden bg-white border-t border-[var(--color-cyan-pale)] shadow-lg">
+            <div className="lg:hidden bg-white border-t border-[var(--color-cyan-pale)] shadow-lg">
               <nav className="container py-3 flex flex-col">
                 {NAV_LINKS.map((link) => (
                   <SmartLink
