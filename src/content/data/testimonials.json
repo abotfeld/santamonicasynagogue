@@ -1,0 +1,44 @@
+{
+  "testimonials": [
+    {
+      "quote": "A bima that emits a personal and close feeling and a Rabbi who connects with their congregation as a spiritual leader and a friend.",
+      "name": "L.P.",
+      "onHomepage": true
+    },
+    {
+      "quote": "Friday night services are short and friendly. I have brought several non-Jewish friends to give them a taste of what Jewish services are like.",
+      "name": "J.F.",
+      "onHomepage": true
+    },
+    {
+      "quote": "The Santa Monica Synagogue, or SMS, is a hamishe, down-to-earth community of Jews from all walks of life who come together to pray, learn and grow in a kind setting.",
+      "name": "J.G.",
+      "onHomepage": true
+    },
+    {
+      "quote": "A warm community, most welcoming, caring and supportive.",
+      "name": "R.J.",
+      "onHomepage": false
+    },
+    {
+      "quote": "Love the SMS! I've belonged to several Temples and by far this one is the BEST!",
+      "name": "T.S.",
+      "onHomepage": false
+    },
+    {
+      "quote": "Joining a community to welcome Shabbat together helps put the stress of the week behind us.",
+      "name": "J.K.",
+      "onHomepage": true
+    },
+    {
+      "quote": "It is a welcoming place for young and old, singles and families.",
+      "name": "H.T.",
+      "onHomepage": false
+    },
+    {
+      "quote": "Thank you for providing such beautiful services for us to attend during the High Holy Days in such an inclusive environment.",
+      "name": "G.D.",
+      "onHomepage": false
+    }
+  ]
+}

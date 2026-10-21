@@ -1,0 +1,29 @@
+{
+  "address": {
+    "street": "1260 18th Street",
+    "cityStateZip": "Santa Monica, CA 90404",
+    "short": "1260 18th St, Santa Monica"
+  },
+  "phone": "(310) 453-4276",
+  "email": "office@thesms.org",
+  "membershipEmail": "membership@thesms.org",
+  "membershipContact": "Ron Kalbrosky",
+  "facebook": "https://www.facebook.com/friendsofthesantamonicasynagogue",
+  "youtubeChannel": "https://www.youtube.com/@TheSantaMonicaSynagogue/playlists",
+  "shabbat": {
+    "day": "Friday",
+    "time": "6:00 – 7:00 PM",
+    "place": "Sanctuary + live on Facebook",
+    "description": "Join Rabbi Shira and the congregation every Friday at 6:00pm. Short, warm, and full of song."
+  },
+  "links": {
+    "donate": "https://www.thesms.org/form/donations3.html",
+    "highHolyDays": "https://www.thesms.org/form/hhd-registration-2026.html",
+    "highHolyDaysLabel": "High Holy Days Registration 2026",
+    "joinNow": "https://www.thesms.org/form/membership-2023-24.html",
+    "newMemberIntake": "https://www.thesms.org/form/new-member-intake-form.html",
+    "contactForm": "https://www.thesms.org/contact-us",
+    "memberLogin": "https://www.thesms.org/login.php",
+    "calendar": "https://www.thesms.org/cal.php"
+  }
+}

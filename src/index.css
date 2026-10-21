@@ -1,0 +1,562 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------
+   Brand palette and fonts.
+   Use these in classes, e.g. text-[var(--color-pacific)] or bg-[var(--color-sand)].
+   ------------------------------------------------------------------ */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-hebrew: "Frank Ruhl Libre", Georgia, serif;
+
+  --color-border: var(--border);
+
+  --color-pacific: oklch(33.5% 0.072 245.2); /* Deep Pacific #0B3A5B */
+  --color-pacific-deep: oklch(25.8% 0.062 246.5);
+  --color-ocean: oklch(46.3% 0.093 240.8); /* Ocean #12628F */
+  --color-ocean-light: oklch(58.5% 0.096 233.5);
+  --color-turquoise: oklch(72.4% 0.114 199.4); /* Turquoise #1FBFC4 */
+  --color-turquoise-deep: oklch(63.5% 0.106 200.6);
+  --color-cyan-light: oklch(88.2% 0.062 199.1); /* Bright Cyan #7FE0E8 */
+  --color-cyan-pale: oklch(95.1% 0.028 197.8);
+  --color-coral: oklch(68.5% 0.145 34.5);
+  --color-coral-deep: oklch(61.2% 0.152 33.2);
+  --color-coral-soft: oklch(89.5% 0.052 40.1);
+  --color-leaf: oklch(69.8% 0.115 166.5); /* Sea glass green */
+  --color-leaf-deep: oklch(61.8% 0.115 167.5);
+  --color-leaf-soft: oklch(92.8% 0.052 168.5);
+  --color-sand: oklch(96.3% 0.011 79.8); /* Shell Sand #F7F3EC */
+  --color-sand-deep: oklch(92.8% 0.018 76.5);
+  --color-ink: oklch(26.8% 0.043 244.5);
+  --color-slate-blue: oklch(54.8% 0.032 236.9);
+
+  --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* ------------------------------------------------------------------
+   The "accent" color (buttons like High Holy Days, the 45-years badge).
+   Default is sea-glass green. The Accent switcher in the top bar can flip
+   it to Sunset coral (html[data-accent="coral"], further down).
+   ------------------------------------------------------------------ */
+:root {
+  --radius: 1rem;
+  --accent-strong: var(--color-leaf);
+  --accent-strong-deep: var(--color-leaf-deep);
+  --accent-strong-soft: var(--color-leaf-soft);
+  --accent-shadow: 26, 104, 86;
+  --accent-on: #04291f;
+
+  --background: oklch(96.3% 0.011 79.8);
+  --foreground: oklch(26.8% 0.043 244.5);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(26.8% 0.043 244.5);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(26.8% 0.043 244.5);
+  --primary: oklch(33.5% 0.072 245.2);
+  --primary-foreground: oklch(98% 0.008 197);
+  --secondary: oklch(95.1% 0.028 197.8);
+  --secondary-foreground: oklch(33.5% 0.072 245.2);
+  --muted: oklch(92.8% 0.018 76.5);
+  --muted-foreground: oklch(54.8% 0.032 236.9);
+  --accent: oklch(72.4% 0.114 199.4);
+  --accent-foreground: oklch(25.8% 0.062 246.5);
+  --destructive: oklch(57.7% 0.245 27.325);
+  --destructive-foreground: oklch(98.5% 0 0);
+  --border: oklch(89.2% 0.016 220);
+  --input: oklch(89.2% 0.016 220);
+  --ring: oklch(72.4% 0.114 199.4);
+}
+
+html[data-accent="coral"] {
+  --accent-strong: var(--color-coral);
+  --accent-strong-deep: var(--color-coral-deep);
+  --accent-strong-soft: var(--color-coral-soft);
+  --accent-shadow: 200, 92, 60;
+  --accent-on: #fff;
+}
+
+/* ------------------------------------------------------------------
+   Base text styles. Body text is large on purpose: the congregation is
+   multi-generational, so legibility comes first.
+   ------------------------------------------------------------------ */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-size: 19px;
+    line-height: 1.72;
+  }
+  @media (min-width: 768px) {
+    body {
+      font-size: 20px;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 50;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: var(--color-cyan-light);
+    color: var(--color-pacific-deep);
+  }
+  p,
+  li,
+  figcaption,
+  blockquote,
+  address,
+  label,
+  a:not([class*="sms-btn"]) {
+    font-size: max(1em, 1.02rem);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Site building blocks. Every class starting with "sms-" lives here.
+   ------------------------------------------------------------------ */
+@layer components {
+  /* When the site is embedded in an iframe (?embed or inside another page),
+     let the page be exactly as tall as its content. */
+  html[data-embed="1"],
+  html[data-embed="1"] body {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  html[data-embed="1"] .min-h-screen {
+    min-height: 0 !important;
+  }
+
+  /* Page width: full width on phones, capped at 1240px on desktops. */
+  .container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .flex {
+    min-width: 0;
+    min-height: 0;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1240px;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  /* Small uppercase label above headings. */
+  .sms-eyebrow {
+    font-family: var(--font-sans);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-turquoise-deep);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .sms-eyebrow-light {
+    color: var(--color-cyan-light);
+  }
+
+  /* Section heading. */
+  .sms-h2 {
+    font-family: var(--font-display);
+    font-size: 2.3rem;
+    font-weight: 600;
+    line-height: 1.04;
+  }
+  @media (min-width: 768px) {
+    .sms-h2 {
+      font-size: 3.1rem;
+    }
+  }
+
+  /* The turquoise brush-stroke highlight under key words in headings.
+     sms-swash-wrap lets long highlights wrap on small phones; the -sm/-md/-lg
+     variants switch back to the single brush stroke from that screen size up. */
+  .sms-swash {
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+  }
+  .sms-swash-wrap {
+    white-space: normal;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-image: linear-gradient(0deg, #1fbfc46b 0.02em 0.3em, #0000 0.3em);
+    padding-inline: 0.06em;
+    display: inline;
+  }
+  .sms-swash-wrap:after {
+    content: none;
+  }
+  .sms-swash-wrap.sms-swash-bright {
+    background-image: linear-gradient(0deg, #d7f4f780 0.02em 0.3em, #0000 0.3em);
+  }
+  @media (min-width: 360px) {
+    .sms-swash-wrap-sm {
+      white-space: nowrap;
+      background-image: none;
+      padding-inline: 0;
+      display: inline-block;
+    }
+    .sms-swash-wrap-sm:after {
+      content: "";
+    }
+  }
+  @media (min-width: 430px) {
+    .sms-swash-wrap-md {
+      white-space: nowrap;
+      background-image: none;
+      padding-inline: 0;
+      display: inline-block;
+    }
+    .sms-swash-wrap-md:after {
+      content: "";
+    }
+  }
+  @media (min-width: 1024px) {
+    .sms-swash-wrap-lg {
+      white-space: nowrap;
+      background-image: none;
+      padding-inline: 0;
+      display: inline-block;
+    }
+    .sms-swash-wrap-lg:after {
+      content: "";
+    }
+  }
+  .sms-swash:after {
+    content: "";
+    background: var(--color-turquoise);
+    opacity: 0.42;
+    z-index: -1;
+    border-radius: 999px/60% 40%;
+    height: 0.34em;
+    position: absolute;
+    bottom: 0.02em;
+    left: -0.06em;
+    right: -0.06em;
+    transform: rotate(-0.5deg);
+  }
+  .sms-swash-bright:after {
+    background: var(--color-turquoise);
+    opacity: 0.65;
+  }
+
+  /* Frosted "sea glass" panels. */
+  .sms-seaglass {
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    background: #ffffffc7;
+    border: 1px solid color-mix(in oklab, var(--color-cyan-light) 55%, transparent);
+    box-shadow:
+      inset 0 1px #ffffffb3,
+      0 18px 50px -18px #0b3a5b47;
+  }
+  .sms-seaglass-dark {
+    background: color-mix(in oklab, var(--color-pacific-deep) 62%, transparent);
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    border: 1px solid color-mix(in oklab, var(--color-turquoise) 34%, transparent);
+  }
+  .sms-glass-card {
+    -webkit-backdrop-filter: blur(14px) saturate(1.18);
+    background: linear-gradient(152deg, #ffffffe6, #f0fbfcc2 52%, #d6f3f699);
+    border: 1px solid color-mix(in oklab, var(--color-turquoise) 26%, transparent);
+    position: relative;
+    box-shadow:
+      inset 0 1px #ffffffd9,
+      inset 0 -1px #7fe0e859,
+      0 20px 44px -24px #0b3a5b4d;
+  }
+  .sms-glass-card > * {
+    z-index: 1;
+    position: relative;
+  }
+  .sms-glass-card:after {
+    content: "";
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(120% 90% at 88% 4%, #7fe0e852, #0000 62%);
+    position: absolute;
+    inset: 0;
+  }
+  .sms-plain-card {
+    background: #fff;
+    border: 1px solid color-mix(in oklab, var(--color-pacific) 12%, transparent);
+    position: relative;
+    border-radius: 1.25rem;
+    box-shadow: 0 1px 2px #0b3a5b0d;
+  }
+  .sms-plain-card-accent {
+    border-left: 5px solid var(--color-turquoise);
+  }
+
+  /* Soft light backgrounds for light sections. */
+  .sms-lightband {
+    background:
+      radial-gradient(70% 60% at 10% 0%, #7fe0e852, transparent 62%),
+      radial-gradient(62% 58% at 94% 88%, #ff6b5d21, transparent 60%),
+      linear-gradient(180deg, var(--color-sand) 0%, #eff8f9 46%, var(--color-sand) 100%);
+  }
+  .sms-morningband {
+    background:
+      radial-gradient(80% 65% at 82% 2%, #7fe0e86b, transparent 64%),
+      radial-gradient(70% 60% at 8% 96%, #ffa88229, transparent 62%),
+      linear-gradient(176deg, #fff 0%, #f2fbfc 40%, var(--color-sand) 100%);
+  }
+
+  /* Large faint Torah-scroll logo behind sections. */
+  .sms-watermark {
+    pointer-events: none;
+    opacity: 0.05;
+    color: var(--color-pacific);
+    position: absolute;
+  }
+  .sms-watermark-light {
+    opacity: 0.07;
+    color: var(--color-cyan-light);
+  }
+
+  /* Photo tiles: lift, outline and a light sheen sweep on hover. */
+  .sms-tile {
+    outline-offset: 0;
+    will-change: transform;
+    outline: 1px solid #1fbfc400;
+    transition:
+      transform 0.26s cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 0.26s cubic-bezier(0.23, 1, 0.32, 1),
+      outline-color 0.26s cubic-bezier(0.23, 1, 0.32, 1),
+      outline-offset 0.26s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 20px 44px -22px #0b3a5b61;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sms-tile:hover {
+      outline-offset: 4px;
+      outline-color: #1fbfc480;
+      transform: translateY(-8px);
+      box-shadow: 0 34px 64px -22px #0b3a5b75;
+    }
+  }
+  .sms-tile:active {
+    transform: translateY(-3px) scale(0.994);
+  }
+  .sms-tile-sheen {
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(74deg, #0000 38%, #bef5fa66 47%, #fff9, #bef5fa66 57%, #0000 66%);
+    position: absolute;
+    inset: -45% -120%;
+    transform: translate(-58%);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .group:hover .sms-tile-sheen {
+      opacity: 1;
+      transition:
+        transform 0.76s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.24s ease-out;
+      transform: translate(58%);
+    }
+  }
+
+  /* Subtle film-grain texture on dark sections. */
+  .sms-grain:before {
+    content: "";
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Buttons. */
+  .sms-btn {
+    font-family: var(--font-sans);
+    letter-spacing: 0.005em;
+    transition:
+      transform 0.16s var(--ease-out-soft),
+      box-shadow 0.2s var(--ease-out-soft),
+      background-color 0.2s var(--ease-out-soft),
+      color 0.2s var(--ease-out-soft);
+    border-radius: 999px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+  }
+  .sms-btn:active {
+    transform: scale(0.97);
+  }
+  .sms-btn-primary {
+    background: var(--color-turquoise);
+    color: var(--color-pacific-deep);
+    box-shadow: 0 10px 26px -10px color-mix(in oklab, var(--color-turquoise) 80%, transparent);
+  }
+  .sms-btn-primary:hover {
+    background: var(--color-cyan-light);
+    box-shadow: 0 16px 34px -12px color-mix(in oklab, var(--color-turquoise) 90%, transparent);
+    transform: translateY(-2px);
+  }
+  .sms-btn-ghost {
+    color: #fff;
+    background: 0 0;
+    border: 1.5px solid color-mix(in oklab, var(--color-cyan-light) 60%, transparent);
+  }
+  .sms-btn-ghost:hover {
+    border-color: var(--color-cyan-light);
+    background: #ffffff24;
+    transform: translateY(-2px);
+  }
+  .sms-btn-solid {
+    background: var(--color-pacific);
+    color: #fff;
+  }
+  .sms-btn-solid:hover {
+    background: var(--color-ocean);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -14px #0b3a5b8c;
+  }
+  .sms-btn-outline {
+    color: var(--color-pacific);
+    background: 0 0;
+    border: 1.5px solid color-mix(in oklab, var(--color-turquoise) 55%, transparent);
+  }
+  .sms-btn-outline:hover {
+    background: color-mix(in oklab, var(--color-turquoise) 12%, transparent);
+    border-color: var(--color-turquoise);
+    transform: translateY(-2px);
+  }
+  /* "Coral" button = the accent button (green by default, coral if switched). */
+  .sms-btn-coral {
+    background: var(--accent-strong);
+    color: var(--accent-on);
+    box-shadow: 0 10px 24px -12px rgba(var(--accent-shadow), 0.5);
+    border: 1px solid #0000;
+    font-weight: 700;
+  }
+  .sms-btn-coral:hover {
+    background: var(--accent-strong-deep);
+    box-shadow: 0 16px 30px -12px rgba(var(--accent-shadow), 0.6);
+    transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sms-btn-coral-pulse {
+      animation: 3.4s cubic-bezier(0.4, 0, 0.6, 1) infinite sms-coral-pulse;
+    }
+    .sms-btn-coral-pulse:hover {
+      animation: none;
+    }
+  }
+  @keyframes sms-coral-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 10px 24px -12px rgba(var(--accent-shadow), 0.5),
+        0 0 rgba(var(--accent-shadow), 0.4);
+    }
+    55% {
+      box-shadow:
+        0 12px 28px -12px rgba(var(--accent-shadow), 0.6),
+        0 0 0 12px rgba(var(--accent-shadow), 0);
+    }
+  }
+
+  /* Fade-up as sections scroll into view (see lib/useScrollReveal.js). */
+  .sms-reveal {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sms-reveal {
+      opacity: 0;
+      transition:
+        opacity 0.52s var(--ease-out-soft),
+        transform 0.52s var(--ease-out-soft);
+      will-change: opacity, transform;
+      transform: translateY(18px);
+    }
+    .sms-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sms-lift {
+    transition:
+      transform 0.2s var(--ease-out-soft),
+      box-shadow 0.24s var(--ease-out-soft);
+  }
+  .sms-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 26px 54px -22px #0b3a5b61;
+  }
+
+  .sms-hebrew {
+    font-family: var(--font-hebrew);
+  }
+}

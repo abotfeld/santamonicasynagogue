@@ -1,0 +1,58 @@
+{
+  "holidayCelebrations": [
+    {
+      "title": "Piano Bar Purim: A Spiel for 2024",
+      "youtube": "https://www.youtube.com/watch?v=jdrWCRI3QDI",
+      "description": "Rabbi Shira and David Botfeld led the Congregation in a rollicking rendition of the Purim story, with a surprise guest appearance by Earl Rothrock."
+    },
+    {
+      "title": "Simchat Torah, 2023",
+      "youtube": "https://www.youtube.com/watch?v=7sYZAuFgqCo",
+      "description": "The Congregation and Rabbi Shira read the last part of the book of Deuteronomy, reroll the Torah, and read the first part of the book of Genesis to restart the Torah cycle for another year."
+    },
+    {
+      "title": "Purim Spiel, 2023",
+      "youtube": "https://www.youtube.com/watch?v=tSW7tb7_1aE",
+      "description": "Rabbi Shira Freidlin and Jenny Carr perform Megillah Mashup before a full house at the Santa Monica Synagogue."
+    }
+  ],
+  "highHolyDaysSermons": [
+    {
+      "occasion": "Rosh Hashanah Day, 2023",
+      "title": "“Growing Pains”",
+      "youtube": "https://www.youtube.com/watch?v=UGi6W2Iv6uQ"
+    },
+    {
+      "occasion": "Yom Kippur Day, 2023",
+      "title": "“On a Personal Note”",
+      "youtube": "https://www.youtube.com/watch?v=Afgadcya6GI"
+    },
+    {
+      "occasion": "Erev Rosh Hashanah, 2023",
+      "title": "“The Benefits of Inconvenience”",
+      "youtube": "https://www.youtube.com/watch?v=tFkZd-nvfPI"
+    },
+    {
+      "occasion": "Erev Yom Kippur, 2023",
+      "title": "“Seventy Faces of Torah”",
+      "youtube": "https://www.youtube.com/watch?v=Or4mNx-BTrc"
+    }
+  ],
+  "highHolyDaysMusic": [
+    {
+      "occasion": "2023",
+      "title": "Une'Tanetokef prayer, performed by Cantor Toby Schwartz",
+      "youtube": "https://www.youtube.com/watch?v=zqej1YrYLy8"
+    },
+    {
+      "occasion": "2023",
+      "title": "“Pavanne” by Gabriel Faure and “You Must Believe in Me” by Michelle Legrand, arranged by David Spear, performed by David Spear, Music Director and Pianist, and Michelle Milner, Professional Cellist, Principal Cellist with the San Fernando Valley Symphony Orchestra",
+      "youtube": "https://www.youtube.com/watch?v=AXcG_PdqUOg"
+    },
+    {
+      "occasion": "2023",
+      "title": "Elohai Neshamah prayer, performed by Rabbi Shira Freidlin and Cantor Toby Schwartz",
+      "youtube": "https://www.youtube.com/watch?v=K7e5HZ4zE2I"
+    }
+  ]
+}

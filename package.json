@@ -1,0 +1,27 @@
+{
+  "name": "santa-monica-synagogue",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:preview": "vite build --mode preview --base ./ --outDir preview-dist",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "0.453.0",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
+    "tailwind-merge": "3.3.1",
+    "wouter": "3.7.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.14",
+    "@vitejs/plugin-react": "4.7.0",
+    "tailwindcss": "4.1.14",
+    "vite": "6.4.1"
+  }
+}

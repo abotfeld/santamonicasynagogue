@@ -1,0 +1,63 @@
+<div id="sms-embed-root">
+<style type="text/css">
+  #sms-embed-root {
+    position: relative; left: 50%; right: 50%;
+    width: 100vw; max-width: 100vw;
+    margin-left: -50vw; margin-right: -50vw;
+    padding: 0; overflow: hidden;
+  }
+  #sms-embed-root iframe {
+    display: block; width: 100%; border: 0; margin: 0;
+    height: 3200px; transition: height 120ms ease-out;
+  }
+  #sms-embed-root > iframe { max-width: none !important; }
+</style>
+<iframe id="sms-embed-frame" src="https://admirable-parfait-20b24a.netlify.app/connect?embed=1" title="The Santa Monica Synagogue" scrolling="no" loading="eager" allow="autoplay; fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<script>
+  (function () {
+    if (window.__smsEmbedInit) return;
+    window.__smsEmbedInit = true;
+    var frame = document.getElementById("sms-embed-frame");
+    if (!frame) return;
+    // Pass a #section in this page's address on to the embedded page.
+    if (window.location.hash) {
+      frame.src = frame.src.split("#")[0] + window.location.hash;
+    }
+    var MIN = 1200, MAX = 60000;
+    var root = document.getElementById("sms-embed-root");
+    function fitWidth() {
+      if (!root) return;
+      var w = document.documentElement.clientWidth;
+      root.style.width = w + "px";
+      root.style.maxWidth = w + "px";
+      root.style.marginLeft = -(w / 2) + "px";
+      root.style.marginRight = -(w / 2) + "px";
+    }
+    fitWidth();
+    window.addEventListener("resize", fitWidth);
+    window.addEventListener("orientationchange", fitWidth);
+    function setHeight(h) {
+      h = Math.round(h);
+      if (!isFinite(h) || h < MIN || h > MAX) return;
+      frame.style.height = h + "px";
+    }
+    window.addEventListener("message", function (e) {
+      var d = e.data;
+      if (!d || typeof d !== "object") return;
+      if (d.type === "sms:height") setHeight(d.height);
+      if (d.type === "sms:scrollTo") {
+        var top = frame.getBoundingClientRect().top +
+          (window.pageYOffset || document.documentElement.scrollTop) +
+          (Number(d.offset) || 0);
+        window.scrollTo({ top: top, behavior: "smooth" });
+      }
+    });
+    function fallback() {
+      if (frame.style.height && parseInt(frame.style.height, 10) > MIN) return;
+      setHeight(window.innerWidth < 720 ? 9000 : 5200);
+    }
+    window.setTimeout(fallback, 2500);
+    window.addEventListener("resize", function () { window.setTimeout(fallback, 300); });
+  })();
+</script>
+</div>

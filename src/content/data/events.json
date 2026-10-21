@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "title": "Spring Fundraiser",
+      "date": "2026-05-16",
+      "time": "5:00 PM – 9:00 PM",
+      "place": "Please email for location office@thesms.org",
+      "description": "We’re excited to invite you to our annual Spring Fundraiser, celebrating 45 years of The Santa Monica Synagogue and looking toward the future of our community.\n\nJoin us on Saturday, May 16 (5–9 PM) for an evening of connection, celebration, and support for our synagogue. The night will include a Champagne Circle reception, silent auction, and dinner as we come together to honor the families who helped build SMS and continue to shape our community today.\n\nYour participation helps sustain the programs, services, and community life that make SMS such a special place.",
+      "listTitle": "You can participate in several ways:",
+      "list": [
+        "Buy tickets",
+        "Place an ad in our Tribute Book",
+        "Donate an item to our Silent Auction"
+      ],
+      "closing": "We hope to celebrate with you!\nWarmly,\nThe Santa Monica Synagogue",
+      "buttonLabel": "Buy tickets",
+      "buttonLink": "https://www.thesms.org/form/2026-spring-fundraiser.html",
+      "photo": ""
+    },
+    {
+      "title": "Passover Seder",
+      "date": "2026-04-04",
+      "time": "4:30 PM – 8:30 PM",
+      "place": "The Santa Monica Synagogue · 1260 18th St, Santa Monica",
+      "description": "Join us for a warm and meaningful Passover Seder as we gather together to celebrate the 4th night of Passover.\n\nThis is more than a dinner — it’s an evening of tradition, connection, and community. Whether you’ve attended many Seders or this is your first, you are truly welcome here.\n\nWe will begin promptly at 4:30 PM with a guided Seder, followed by a delicious, traditional Passover meal. Our dinner will include favorites like roast chicken, potatoes, peas, matzo ball soup, and more.",
+      "listTitle": "A few things to know:",
+      "list": [
+        "Full Seder + dinner + community experience",
+        "Welcoming, relaxed atmosphere — come as you are",
+        "Friends and family are encouraged",
+        "Easy parking available"
+      ],
+      "closing": "We are especially happy to welcome our friends from the UU Church to celebrate with us.\nCost: $40 per person\nSpots are limited, and we’d love for you to be part of this special evening.",
+      "buttonLabel": "Reserve your seat today",
+      "buttonLink": "https://www.thesms.org/form/2026%20Passover.html",
+      "photo": ""
+    }
+  ],
+  "yearRound": [
+    {
+      "title": "Progressive Dinner",
+      "badgeTop": "Every",
+      "badgeBottom": "Fall",
+      "time": "Appetizers, Havdalah, dinner and dessert",
+      "place": "Congregants' homes",
+      "description": "Every Fall, we gather for appetizers and Havdalah, then visit the homes of fellow congregants for first and second courses, and then join as a group again for dessert."
+    },
+    {
+      "title": "Movie Mavens",
+      "badgeTop": "Sun",
+      "badgeBottom": "11am",
+      "time": "Every couple of months",
+      "place": "On Zoom",
+      "description": "Our current format is to watch the selected movie at home, every couple of months, and then join a discussion on Zoom on a Sunday morning at 11am."
+    }
+  ]
+}

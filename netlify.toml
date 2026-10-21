@@ -1,0 +1,14 @@
+# Netlify builds the site with `npm run build` and publishes the `dist` folder.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Send every unknown path back to the app so /concept-a, /review, etc. work
+# when someone opens them directly.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

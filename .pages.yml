@@ -1,0 +1,367 @@
+# Editing dashboard for the office (Pages CMS: https://app.pagescms.org).
+# Each entry below is one screen in the dashboard. Saving a change updates the
+# site on Netlify automatically in about a minute.
+
+media:
+  input: public/photos
+  output: /photos
+
+content:
+  - name: events
+    label: Events
+    type: file
+    path: src/content/data/events.json
+    fields:
+      - name: events
+        label: Dated events (Events page and homepage)
+        description: Add a new event with the + button. Events whose date has passed move to "Recent events" on their own and hide their button.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({date})"
+        fields:
+          - name: title
+            label: Event name
+            type: string
+            required: true
+          - name: date
+            label: Date
+            type: date
+            required: true
+            options:
+              format: yyyy-MM-dd
+          - name: time
+            label: Time
+            description: "For example: 5:00 PM – 9:00 PM"
+            type: string
+          - name: place
+            label: Where
+            type: string
+          - name: description
+            label: Description
+            description: Leave an empty line between paragraphs.
+            type: text
+          - name: listTitle
+            label: List heading (optional)
+            description: "For example: A few things to know:"
+            type: string
+          - name: list
+            label: List items (optional)
+            type: string
+            list: true
+          - name: closing
+            label: Closing lines (optional)
+            description: Each line shows on its own line.
+            type: text
+          - name: buttonLabel
+            label: Button text (optional)
+            description: "For example: Buy tickets"
+            type: string
+          - name: buttonLink
+            label: Button link (optional)
+            description: Usually the ShulCloud form for this event, e.g. https://www.thesms.org/form/...
+            type: string
+          - name: photo
+            label: Photo (optional)
+            type: image
+      - name: yearRound
+        label: Year-round highlights (homepage)
+        description: Shown on the homepage next to Shabbat when there are no upcoming dated events.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Name
+            type: string
+          - name: badgeTop
+            label: Badge, top line
+            description: "Short, e.g. Every"
+            type: string
+          - name: badgeBottom
+            label: Badge, bottom line
+            description: "Short, e.g. Fall"
+            type: string
+          - name: time
+            label: When
+            type: string
+          - name: place
+            label: Where
+            type: string
+          - name: description
+            label: Description
+            type: text
+
+  - name: classes
+    label: Adult Education classes
+    type: file
+    path: src/content/data/classes.json
+    fields:
+      - name: classes
+        label: Classes (homepage and Education page)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name} – {when}"
+        fields:
+          - name: name
+            label: Class name
+            type: string
+            required: true
+          - name: when
+            label: Day and time
+            description: "For example: Mondays, 8:00 PM"
+            type: string
+          - name: where
+            label: Where
+            type: select
+            options:
+              values:
+                - Zoom
+                - In person
+
+  - name: testimonials
+    label: Member testimonials
+    type: file
+    path: src/content/data/testimonials.json
+    fields:
+      - name: testimonials
+        label: Testimonials (all show on the Join page)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}: {quote}"
+        fields:
+          - name: quote
+            label: Quote
+            type: text
+            required: true
+          - name: name
+            label: Initials
+            description: "For example: J.K."
+            type: string
+          - name: onHomepage
+            label: Also show on the homepage
+            description: Up to four look best on the homepage.
+            type: boolean
+
+  - name: videos
+    label: Sermons & celebration videos
+    type: file
+    path: src/content/data/videos.json
+    fields:
+      - name: holidayCelebrations
+        label: Holiday Celebrations (Worship page)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: youtube
+            label: YouTube link
+            description: Paste the video's address from YouTube.
+            type: string
+          - name: description
+            label: Description
+            type: text
+      - name: highHolyDaysSermons
+        label: High Holy Days sermons (Worship page)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{occasion}: {title}"
+        fields:
+          - name: occasion
+            label: Occasion and year
+            description: "For example: Rosh Hashanah Day, 2023"
+            type: string
+          - name: title
+            label: Sermon title
+            type: string
+          - name: youtube
+            label: YouTube link
+            type: string
+      - name: highHolyDaysMusic
+        label: High Holy Days music (Worship page)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: occasion
+            label: Year
+            type: string
+          - name: title
+            label: Title
+            type: text
+          - name: youtube
+            label: YouTube link
+            type: string
+
+  - name: clubs
+    label: Clubs (softball, book club, movies)
+    type: file
+    path: src/content/data/clubs.json
+    fields:
+      - name: softball
+        label: Hebrew Nationals softball
+        type: object
+        fields:
+          - name: seasonTitle
+            label: "Activities page: season heading"
+            description: "For example: 2026 Season"
+            type: string
+          - name: seasonText
+            label: "Activities page: season paragraph"
+            type: text
+          - name: homepageSeason
+            label: "Homepage: season label under the team photo"
+            description: "For example: 13th season"
+            type: string
+          - name: homepageStory
+            label: "Homepage: first paragraph"
+            type: text
+          - name: homepageStory2
+            label: "Homepage: second paragraph"
+            type: text
+          - name: facts
+            label: "Homepage: quick facts"
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: value
+                label: Value
+                type: string
+      - name: bookClub
+        label: Book club, current pick (Activities page)
+        type: object
+        fields:
+          - name: pickMonth
+            label: Month
+            description: "For example: September 2024"
+            type: string
+          - name: pickTitle
+            label: Book title
+            type: string
+          - name: pickLink
+            label: Link to the book (optional)
+            type: string
+          - name: pickIntro
+            label: Short intro
+            type: text
+          - name: pickDescription
+            label: About the book
+            type: text
+          - name: pickPhoto
+            label: Photo (optional)
+            type: image
+      - name: movies
+        label: Movie Mavens, "what we've watched"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Movie title
+            type: string
+          - name: link
+            label: Where to watch (optional link)
+            type: string
+
+  - name: settings
+    label: Contact details & form links
+    type: file
+    path: src/content/data/settings.json
+    fields:
+      - name: address
+        label: Address
+        type: object
+        fields:
+          - name: street
+            label: Street
+            type: string
+          - name: cityStateZip
+            label: City, state, ZIP
+            type: string
+          - name: short
+            label: Short version (top bar)
+            type: string
+      - name: phone
+        label: Office phone
+        type: string
+      - name: email
+        label: Office email
+        type: string
+      - name: membershipEmail
+        label: Membership email
+        type: string
+      - name: membershipContact
+        label: Membership contact person
+        type: string
+      - name: facebook
+        label: Facebook page link
+        type: string
+      - name: youtubeChannel
+        label: YouTube channel link
+        type: string
+      - name: shabbat
+        label: Shabbat card (homepage and Events page)
+        type: object
+        fields:
+          - name: day
+            label: Day
+            type: string
+          - name: time
+            label: Time
+            type: string
+          - name: place
+            label: Where
+            type: string
+          - name: description
+            label: Description
+            type: text
+      - name: links
+        label: Links to ShulCloud forms and pages
+        description: Update these when ShulCloud gets a new form, e.g. next year's High Holy Days registration.
+        type: object
+        fields:
+          - name: donate
+            label: Donate form
+            type: string
+          - name: highHolyDays
+            label: High Holy Days registration form
+            type: string
+          - name: highHolyDaysLabel
+            label: High Holy Days button text (Worship page)
+            type: string
+          - name: joinNow
+            label: Join Now membership form
+            type: string
+          - name: newMemberIntake
+            label: New Member Intake form
+            type: string
+          - name: contactForm
+            label: Contact / "Join Us" form
+            type: string
+          - name: memberLogin
+            label: Member login
+            type: string
+          - name: calendar
+            label: Calendar
+            type: string

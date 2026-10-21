@@ -1,0 +1,109 @@
+{
+  "softball": {
+    "seasonTitle": "2025 Season",
+    "seasonText": "The Hebrew Nationals begin their twelfth season playing Synagogue Softball in January 2025. Participation is open to anyone over the age of 18. The games are a lot of fun and a great way to spend a couple of hours on a Sunday. The team loves when there are people in the stands cheering them on. We'd love to have you join us!",
+    "homepageSeason": "12th season",
+    "homepageStory": "After 10 years in the Synagogue Softball league, the Hebrew Nationals Hot Dogs finally brought home their first championship trophy. They went on a very hot streak in the playoffs and closed it out in over 90-degree heat, scoring 19 runs while only giving up one. Everyone played their best during the playoffs!",
+    "homepageStory2": "They followed up this victory with a wonderful championship party joined by their family members, as well as Rabbi Shira. The party included presenting Jimmy Lockwood with the Rodger Watkins Award, which honors the memory of one of our beloved summertime players, who tragically passed away earlier this year. The new season begins in January, where we play against other synagogues throughout West Los Angeles and the Valley. Games are on Sundays through May. GO DOGS!",
+    "facts": [
+      {
+        "label": "Season runs",
+        "value": "January through May"
+      },
+      {
+        "label": "Game day",
+        "value": "Sunday afternoons"
+      },
+      {
+        "label": "Who can play",
+        "value": "Anyone over 18"
+      },
+      {
+        "label": "We play",
+        "value": "West LA & Valley synagogues"
+      }
+    ]
+  },
+  "bookClub": {
+    "pickMonth": "September 2024",
+    "pickTitle": "Everyday Holiness",
+    "pickLink": "https://www.amazon.com/Everyday-Holiness-Jewish-Spiritual-Mussar/dp/1590306090/",
+    "pickIntro": "To prep for High Holy Days Rabbi Shira recommends “Everyday Holiness” by Alan Morinis.",
+    "pickDescription": "Mussar is an illuminating, approachable, and highly practical set of teachings for cultivating personal growth and spiritual realization in the midst of day-to-day life. Here is an accessible and inspiring introduction to this Jewish spiritual path, which until lately has been best known in the world of Orthodox Judaism. The core teaching of Mussar is that our deepest essence is inherently pure and holy, but this inner radiance is obscured by extremes of emotion, desire, and bad habits. Our work in life is to uncover the brilliant light of the soul. The Mussar masters developed transformative teachings and practices—some of which are contemplative, some of which focus on how we relate to others in daily life—to help us to heal and refine ourselves.",
+    "pickPhoto": "/photos/sms-rabbi-book.jpg"
+  },
+  "movies": [
+    {
+      "title": "Einstein And The Bomb",
+      "link": ""
+    },
+    {
+      "title": "The Fabelmans",
+      "link": ""
+    },
+    {
+      "title": "Shalom Bollywood",
+      "link": ""
+    },
+    {
+      "title": "Septembers of Shiraz",
+      "link": "https://www.netflix.com/title/80106744"
+    },
+    {
+      "title": "The Zookeeper’s Wife",
+      "link": "https://www.netflix.com/title/80146804"
+    },
+    {
+      "title": "Keep Quiet",
+      "link": "https://www.amazon.com/Keep-Quiet-Csanad-Szegedi/dp/B06XSZBPRL"
+    },
+    {
+      "title": "Shtisel",
+      "link": "https://www.netflix.com/title/81004164"
+    },
+    {
+      "title": "Tel Aviv on Fire",
+      "link": ""
+    },
+    {
+      "title": "Marshall",
+      "link": ""
+    },
+    {
+      "title": "Above & Beyond",
+      "link": ""
+    },
+    {
+      "title": "Israeli Cuisine",
+      "link": ""
+    },
+    {
+      "title": "Leaving Memel",
+      "link": ""
+    },
+    {
+      "title": "Fanny’s Journey",
+      "link": ""
+    },
+    {
+      "title": "Heading Home, Israeli Baseball",
+      "link": ""
+    },
+    {
+      "title": "Remember",
+      "link": ""
+    },
+    {
+      "title": "Broadway Musicals: A Jewish Legacy",
+      "link": ""
+    },
+    {
+      "title": "Carl Laemmle",
+      "link": ""
+    },
+    {
+      "title": "Never Stop Dreaming: The Life and Legacy of Shimon Peres",
+      "link": ""
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>The Santa Monica Synagogue</title>
+    <meta
+      name="description"
+      content="A warm, progressive Reform community in Santa Monica where people know one another by name. Shabbat every Friday at 6 PM." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,50;1,9..144,400..600,50&family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Hidden copy of the contact form so Netlify Forms can find it at deploy
+         time. Keep the field names in step with src/components/ContactForm.jsx. -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="first-name" /><input name="last-name" /><input name="email" />
+      <input name="subject" /><textarea name="message"></textarea>
+      <input name="inquiring-about" /><input name="bot-field" />
+    </form>
+    <!-- Analytics tag, if ever wanted, goes here. -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

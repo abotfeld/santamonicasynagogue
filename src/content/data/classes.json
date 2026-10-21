@@ -1,0 +1,24 @@
+{
+  "classes": [
+    {
+      "name": "Liturgy",
+      "when": "Mondays, 8:00 PM",
+      "where": "Zoom"
+    },
+    {
+      "name": "Men's Torah Study",
+      "when": "1st & 3rd Tuesdays, 8:00 AM",
+      "where": "Zoom"
+    },
+    {
+      "name": "Weekly Hebrew III",
+      "when": "Tuesdays, 9:15 AM",
+      "where": "In person"
+    },
+    {
+      "name": "Women's Torah Study",
+      "when": "Thursdays, 2:00 PM",
+      "where": "In person"
+    }
+  ]
+}
