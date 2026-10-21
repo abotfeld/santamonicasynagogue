@@ -7,7 +7,8 @@ into this editable project. It produces the same pages, pixel for pixel.
 
 | To change…                                         | Edit this                         |
 | -------------------------------------------------- | --------------------------------- |
-| Address, phone, email, form links, events, classes, member quotes, FAQ answers, softball and wine club text | `src/content/site.js` |
+| Address, phone, email, form links, events, classes, member quotes, videos, clubs | `src/content/data/*.json` (also editable in the Pages CMS dashboard) |
+| FAQ answers, menu, homepage cards, photo list | `src/content/site.js` |
 | A section's headings and paragraphs                | `src/sections/<Section>.jsx`      |
 | Order of sections on the homepage                  | `src/pages/Home.jsx`              |
 | Top bar, footer, map, video player                 | `src/components/`                 |
@@ -15,9 +16,9 @@ into this editable project. It produces the same pages, pixel for pixel.
 | Photos and videos                                  | `public/photos/`, `public/media/` |
 
 Homepage sections, top to bottom (`src/pages/Home.jsx`):
-HeroCollage → ShabbatBand → HighHolyDays → Tashlich → Softball → WineClub →
-Faq → SpecialVideo → About → Rabbi → Events → LearningAndCommunity →
-Testimonials → HolocaustTorah → Doors → Donate, then Footer and StickyJoinBar.
+HeroCollage → ShabbatBand → Doors → Faq → SpecialVideo → About → Rabbi →
+LearningAndCommunity → Testimonials → Events → HighHolyDays → Tashlich →
+Softball → WineClub → HolocaustTorah → Generations → Donate, then Footer.
 
 Inner pages (added Oct 2026, wording carried over from the old Squarespace site
 thesantamonicasynagogue.org). Addresses match the old site so links keep working:
