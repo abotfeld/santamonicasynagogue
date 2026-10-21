@@ -69,11 +69,11 @@ export const SHULCLOUD_PAGES = {
   "/about": "https://www.thesms.org/about-us.html",
   "/worship": "https://www.thesms.org/worship.html",
   "/our-holocaust-torah": "https://www.thesms.org/our-holocaust-torah-new.html",
-  "/coaching": "https://www.thesms.org/our-religious-leaders.html",
-  "/connect": "https://www.thesms.org/programs.html",
-  "/education": "https://www.thesms.org/education2.html",
+  "/coaching": "https://www.thesms.org/rabbi-shira.html",
+  "/connect": "https://www.thesms.org/activities.html",
+  "/education": "https://www.thesms.org/education5.html",
   "/events": "https://www.thesms.org/events.html",
-  "/membership": "https://www.thesms.org/membership.html",
+  "/membership": "https://www.thesms.org/join.html",
   // Contact uses ShulCloud's own contact form on thesms.org.
   "/contact": "https://www.thesms.org/contact-us",
 };
