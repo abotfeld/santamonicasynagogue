@@ -68,7 +68,7 @@ export const SHULCLOUD_PAGES = {
   "/": "https://www.thesms.org/",
   "/about": "https://www.thesms.org/about-us.html",
   "/worship": "https://www.thesms.org/worship.html",
-  "/our-holocaust-torah": "https://www.thesms.org/our-holocaust-torah.html",
+  "/our-holocaust-torah": "https://www.thesms.org/our-holocaust-torah-new.html",
   "/coaching": "https://www.thesms.org/our-religious-leaders.html",
   "/connect": "https://www.thesms.org/programs.html",
   "/education": "https://www.thesms.org/education2.html",
