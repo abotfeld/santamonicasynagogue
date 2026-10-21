@@ -6,7 +6,7 @@ import { isEmbedded } from "../lib/embed";
 const SITE_URL = "https://admirable-parfait-20b24a.netlify.app";
 
 // When embedded in thesms.org, "/connect/softball" becomes
-// "https://www.thesms.org/programs.html#softball" and opens in the full window.
+// "https://www.thesms.org/activities.html#softball" and opens in the full window.
 export function shulcloudUrl(path) {
   const [page, section] = splitPath(path);
   const base = SHULCLOUD_PAGES[page] || `${SITE_URL}${page}`;
