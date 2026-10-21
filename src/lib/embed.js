@@ -17,6 +17,17 @@ export function isEmbedded() {
     return true;
   }
 }
+// True when the ShulCloud page asked the embedded site to show its own menu
+// bar (the page code adds &nav=1 and hides ShulCloud's menu).
+export function wantsOwnNav() {
+  if (typeof window === "undefined") return false;
+  try {
+    return new URLSearchParams(window.location.search).has("nav");
+  } catch {
+    return false;
+  }
+}
+
 export function useEmbedBridge() {
   useEffect(() => {
     if (!isEmbedded()) return;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapPin, Menu, Phone, X } from "lucide-react";
 import { CONTACT, LINKS, NAV_LINKS } from "../content/site";
-import { isEmbedded } from "../lib/embed";
+import { isEmbedded, wantsOwnNav } from "../lib/embed";
 import { SmartLink } from "./SmartLink";
 import { StarOfDavid } from "./StarOfDavid";
 import { Wordmark } from "./Wordmark";
@@ -42,6 +42,15 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
           </div>
           <div className="hidden md:flex items-center gap-6 whitespace-nowrap">
             {variantSwitcher}
+            {isEmbedded() && (
+              <a
+                href={LINKS.login}
+                target="_top"
+                className="font-semibold hover:text-[var(--color-cyan-light)] transition-colors"
+              >
+                Member Login
+              </a>
+            )}
             <span className="flex items-center gap-2">
               <StarOfDavid className="h-4 w-4 text-[var(--color-turquoise)]" />
               Reform Jewish Congregation
@@ -49,7 +58,7 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
           </div>
         </div>
       </div>
-      {showNav && !isEmbedded() && (
+      {showNav && (!isEmbedded() || wantsOwnNav()) && (
         <header
           className={`sticky top-0 z-40 transition-all duration-300 ${solid ? "bg-white/92 backdrop-blur-xl shadow-[0_6px_28px_-18px_rgba(11,58,91,0.5)]" : "bg-transparent"}`}
         >

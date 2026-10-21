@@ -1,10 +1,19 @@
 <div id="sms-embed-root">
 <style type="text/css">
+  /* Hide ShulCloud's header, menu, sidebars, page title and footer on this page only. */
+  #header, #topnav, #quick_links_search_wrapper, #sidebar_left,
+  .sidebar_left_top_wrapper, #sidebar_right, #content > .search_area,
+  #content > .right_box2, .breadcrumbpaginationh1section, #footer {
+    display: none !important;
+  }
+  #content, #maincontent_sidebar_wrapper, #maincontent, #maincontent .pad-helper {
+    width: 100% !important; max-width: none !important;
+    margin: 0 !important; padding: 0 !important; float: none !important;
+    border: 0 !important; box-shadow: none !important; min-height: 0 !important;
+  }
   #sms-embed-root {
-    position: relative; left: 50%; right: 50%;
-    width: 100vw; max-width: 100vw;
-    margin-left: -50vw; margin-right: -50vw;
-    padding: 0; overflow: hidden;
+    position: static; width: 100%; max-width: none;
+    margin: 0; padding: 0; overflow: hidden;
   }
   #sms-embed-root iframe {
     display: block; width: 100%; border: 0; margin: 0;
@@ -12,7 +21,7 @@
   }
   #sms-embed-root > iframe { max-width: none !important; }
 </style>
-<iframe id="sms-embed-frame" src="https://admirable-parfait-20b24a.netlify.app/about?embed=1" title="The Santa Monica Synagogue" scrolling="no" loading="eager" allow="autoplay; fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe id="sms-embed-frame" src="https://admirable-parfait-20b24a.netlify.app/about?embed=1&nav=1" title="The Santa Monica Synagogue" scrolling="no" loading="eager" allow="autoplay; fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <script>
   (function () {
     if (window.__smsEmbedInit) return;
@@ -24,18 +33,6 @@
       frame.src = frame.src.split("#")[0] + window.location.hash;
     }
     var MIN = 1200, MAX = 60000;
-    var root = document.getElementById("sms-embed-root");
-    function fitWidth() {
-      if (!root) return;
-      var w = document.documentElement.clientWidth;
-      root.style.width = w + "px";
-      root.style.maxWidth = w + "px";
-      root.style.marginLeft = -(w / 2) + "px";
-      root.style.marginRight = -(w / 2) + "px";
-    }
-    fitWidth();
-    window.addEventListener("resize", fitWidth);
-    window.addEventListener("orientationchange", fitWidth);
     function setHeight(h) {
       h = Math.round(h);
       if (!isFinite(h) || h < MIN || h > MAX) return;
