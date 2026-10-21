@@ -66,7 +66,7 @@ export const NAV_LINKS = [
 // ShulCloud page gets a different address.
 export const SHULCLOUD_PAGES = {
   "/": "https://www.thesms.org/",
-  "/about": "https://www.thesms.org/about-us-old.html",
+  "/about": "https://www.thesms.org/about-us.html",
   "/worship": "https://www.thesms.org/worship.html",
   "/our-holocaust-torah": "https://www.thesms.org/our-holocaust-torah.html",
   "/coaching": "https://www.thesms.org/our-religious-leaders.html",
