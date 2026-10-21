@@ -251,6 +251,7 @@ export const PHOTOS = {
   sangriaGroup: asset("photos/sms-patio-table.jpg"),
   rabbiShira: asset("photos/sms-rabbi-shira.jpg"),
   rabbiDesk: asset("photos/sms-rabbi-desk.jpg"),
+  generations: asset("photos/sms-generations.jpg"),
 };
 
 // Video files (in public/media).

@@ -10,6 +10,7 @@ import { Donate } from "../sections/Donate";
 import { Doors } from "../sections/Doors";
 import { Events } from "../sections/Events";
 import { Faq } from "../sections/Faq";
+import { Generations } from "../sections/Generations";
 import { HeroCollage } from "../sections/HeroCollage";
 import { HighHolyDays } from "../sections/HighHolyDays";
 import { HolocaustTorah } from "../sections/HolocaustTorah";
@@ -56,6 +57,7 @@ export function Home() {
         <Softball />
         <WineClub />
         <HolocaustTorah />
+        <Generations />
         <Donate />
       </main>
       <Footer />
