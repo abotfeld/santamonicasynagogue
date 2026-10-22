@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { jumpTo } from "../lib/jumpTo";
 import { Footer } from "../components/Footer";
 import { ReviewSwitcher } from "../components/ReviewSwitcher";
 import { StickyJoinBar } from "../components/StickyJoinBar";
@@ -26,7 +27,7 @@ import { WineClub } from "../sections/WineClub";
 export function Home() {
   // Start at the top when arriving from another page.
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    jumpTo(0);
   }, []);
   useScrollReveal();
   useEmbedBridge();

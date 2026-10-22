@@ -62,8 +62,7 @@
 
 /* ------------------------------------------------------------------
    The "accent" color (buttons like High Holy Days, the 45-years badge).
-   Default is sea-glass green. The Accent switcher in the top bar can flip
-   it to Sunset coral (html[data-accent="coral"], further down).
+   Sea-glass green.
    ------------------------------------------------------------------ */
 :root {
   --radius: 1rem;
@@ -92,14 +91,6 @@
   --border: oklch(89.2% 0.016 220);
   --input: oklch(89.2% 0.016 220);
   --ring: oklch(72.4% 0.114 199.4);
-}
-
-html[data-accent="coral"] {
-  --accent-strong: var(--color-coral);
-  --accent-strong-deep: var(--color-coral-deep);
-  --accent-strong-soft: var(--color-coral-soft);
-  --accent-shadow: 200, 92, 60;
-  --accent-on: #fff;
 }
 
 /* ------------------------------------------------------------------

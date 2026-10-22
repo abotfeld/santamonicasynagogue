@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { jumpTo } from "../lib/jumpTo";
 import { isEmbedded, useEmbedBridge } from "../lib/embed";
 import { useScrollReveal } from "../lib/useScrollReveal";
 import { Footer } from "./Footer";
@@ -33,12 +34,9 @@ export function PageLayout({ children, scrollTo }) {
     if (target) {
       const header = document.querySelector("header");
       const offset = header ? header.getBoundingClientRect().height + 12 : 0;
-      window.scrollTo({
-        top: target.getBoundingClientRect().top + window.scrollY - offset,
-        behavior: "instant",
-      });
+      jumpTo(target.getBoundingClientRect().top + window.scrollY - offset);
     } else {
-      window.scrollTo({ top: 0, behavior: "instant" });
+      jumpTo(0);
     }
   }, [scrollTo]);
   return (
