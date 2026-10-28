@@ -1,5 +1,6 @@
 import { PageHero } from "../components/PageHero";
 import { PageLayout } from "../components/PageLayout";
+import { WaveDivider } from "../components/WaveDivider";
 import { PAGE_PHOTOS } from "../content/pages";
 import { CONTACT, PHOTOS } from "../content/site";
 
@@ -92,7 +93,7 @@ export function RabbiPage() {
       </section>
       <section
         id="rabbi-emeritus"
-        className="relative bg-white py-20 md:py-24"
+        className="relative bg-white pt-20 md:pt-24"
       >
         <div className="container grid gap-12 md:grid-cols-[minmax(0,15rem)_1fr] lg:gap-16 items-center [&>*]:min-w-0">
           <div className="sms-reveal mx-auto w-full max-w-[15rem]">
@@ -131,7 +132,15 @@ export function RabbiPage() {
             </div>
           </div>
         </div>
+        <div className="relative z-10 -mb-px mt-14 md:mt-16">
+          <WaveDivider
+            color="var(--color-sand)"
+            position="bottom"
+            height={70}
+          />
+        </div>
       </section>
+      <div className="h-14 md:h-16" />
     </PageLayout>
   );
 }
