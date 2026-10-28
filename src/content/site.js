@@ -49,15 +49,15 @@ export const LINKS = {
 // Menu bar and footer "Explore" links. Paths starting with "/" are pages on
 // this site; full web addresses open in a new tab.
 export const NAV_LINKS = [
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Worship", href: "/worship" },
   { label: "Holocaust Torah", href: "/our-holocaust-torah" },
-  { label: "Rabbi Shira", href: "/coaching" },
-  { label: "Activities", href: "/connect" },
+  { label: "Rabbi Shira", href: "/rabbi-shira" },
+  { label: "Activities", href: "/activities" },
   { label: "Education", href: "/education" },
   { label: "Calendar", href: LINKS.calendar },
   { label: "Events", href: "/events" },
-  { label: "Join", href: "/membership" },
+  { label: "Join", href: "/join" },
   { label: "Contact", href: "/contact" },
 ];
 // When the site is shown inside thesms.org (ShulCloud), links between pages
@@ -66,16 +66,21 @@ export const NAV_LINKS = [
 // ShulCloud page gets a different address.
 export const SHULCLOUD_PAGES = {
   "/": "https://www.thesms.org/",
-  "/about": "https://www.thesms.org/about-us.html",
+  "/about-us": "https://www.thesms.org/about-us.html",
   "/worship": "https://www.thesms.org/worship1.html",
   "/our-holocaust-torah": "https://www.thesms.org/our-holocaust-torah-new.html",
-  "/coaching": "https://www.thesms.org/rabbi-shira.html",
-  "/connect": "https://www.thesms.org/activities.html",
+  "/rabbi-shira": "https://www.thesms.org/rabbi-shira.html",
+  "/activities": "https://www.thesms.org/activities.html",
   "/education": "https://www.thesms.org/education5.html",
   "/events": "https://www.thesms.org/events.html",
-  "/membership": "https://www.thesms.org/join.html",
+  "/join": "https://www.thesms.org/join.html",
   // Contact uses ShulCloud's own contact form on thesms.org.
   "/contact": "https://www.thesms.org/contact-us",
+  // Older names for the same pages (the first ShulCloud embed codes use them).
+  "/about": "https://www.thesms.org/about-us.html",
+  "/coaching": "https://www.thesms.org/rabbi-shira.html",
+  "/connect": "https://www.thesms.org/activities.html",
+  "/membership": "https://www.thesms.org/join.html",
 };
 
 // Every-question-you-were-going-to-ask cards.

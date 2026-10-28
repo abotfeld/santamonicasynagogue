@@ -48,7 +48,7 @@ export const HHD_SERMONS = videosData.highHolyDaysSermons.map(toCard);
 export const HHD_MUSIC = videosData.highHolyDaysMusic.map(toCard);
 
 // Activities page. `id` is the section's anchor and matches the old address
-// (e.g. /connect/softball). `photo` is optional.
+// (e.g. /activities/softball). `photo` is optional.
 export const ACTIVITIES = [
   {
     id: "softball",
@@ -144,6 +144,7 @@ export const CONTACT_TOPICS = [
 export const PAGE_PHOTOS = {
   rabbiBima: asset("photos/sms-rabbi-bima.jpg"),
   rabbiTallit: asset("photos/sms-rabbi-tallit.jpg"),
+  rabbiMarx: asset("photos/sms-rabbi-marx.jpg"),
   rabbiHugBook: asset("photos/sms-rabbi-hug-book.jpg"),
   rabbiTorah: asset("photos/sms-rabbi-torah.jpg"),
   rabbiStorytime: asset("photos/sms-rabbi-storytime.jpg"),

@@ -21,18 +21,19 @@ LearningAndCommunity → Testimonials → Events → HighHolyDays → Tashlich �
 Softball → WineClub → HolocaustTorah → Generations → Donate, then Footer.
 
 Inner pages (added Oct 2026, wording carried over from the old Squarespace site
-thesantamonicasynagogue.org). Addresses match the old site so links keep working:
+thesantamonicasynagogue.org). Addresses match the thesms.org page names; the
+older names in brackets still work because the first ShulCloud embed codes use them:
 
 | Address                          | File                        |
 | -------------------------------- | --------------------------- |
-| /about                           | src/pages/AboutPage.jsx      |
+| /about-us (old: /about)          | src/pages/AboutPage.jsx      |
 | /worship (+ /worship/shabbat-services, /holiday-celebrations, /high-holy-days) | src/pages/WorshipPage.jsx |
 | /our-holocaust-torah (also /worship/ourtorah) | src/pages/HolocaustTorahPage.jsx |
-| /coaching (also /rabbi-shira)    | src/pages/RabbiPage.jsx      |
-| /connect (also /activities, + /connect/softball etc.) | src/pages/ActivitiesPage.jsx |
+| /rabbi-shira (old: /coaching)    | src/pages/RabbiPage.jsx      |
+| /activities (old: /connect; + /activities/softball etc.) | src/pages/ActivitiesPage.jsx |
 | /education                       | src/pages/EducationPage.jsx  |
 | /events                          | src/pages/EventsPage.jsx     |
-| /membership (also /join)         | src/pages/JoinPage.jsx       |
+| /join (old: /membership)         | src/pages/JoinPage.jsx       |
 | /contact                         | src/pages/ContactPage.jsx    |
 
 Lists for these pages (events, classes, movies, sermons, testimonials, photos)

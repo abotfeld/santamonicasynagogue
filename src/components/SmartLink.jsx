@@ -5,7 +5,7 @@ import { isEmbedded } from "../lib/embed";
 // The address of this site on Netlify, used when a page has no ShulCloud twin.
 const SITE_URL = "https://admirable-parfait-20b24a.netlify.app";
 
-// When embedded in thesms.org, "/connect/softball" becomes
+// When embedded in thesms.org, "/activities/softball" becomes
 // "https://www.thesms.org/activities.html#softball" and opens in the full window.
 export function shulcloudUrl(path) {
   const [page, section] = splitPath(path);
@@ -23,7 +23,7 @@ function splitPath(path) {
 }
 
 // One link component for the whole site:
-//  - "/about" style paths move between pages of this site
+//  - "/about-us" style paths move between pages of this site
 //    (or between thesms.org pages when the site is embedded there)
 //  - "#section" jumps within the page
 //  - full web addresses open in a new tab

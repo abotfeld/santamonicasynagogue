@@ -88,6 +88,44 @@ export function RabbiPage() {
           </div>
         </div>
       </section>
+      <section
+        id="rabbi-emeritus"
+        className="relative bg-white py-16 md:py-24"
+      >
+        <div className="container">
+          <div className="sms-reveal mx-auto max-w-5xl rounded-[1.8rem] border border-[var(--color-cyan-pale)] bg-[var(--color-sand)] p-7 sm:p-10 md:p-12 shadow-[0_30px_60px_-40px_rgba(11,58,91,0.5)]">
+            <div className="grid gap-10 md:grid-cols-[auto_1fr] md:gap-14 items-center [&>*]:min-w-0">
+              <figure className="mx-auto w-[13rem] sm:w-[14rem] rounded-[1.5rem] bg-white p-2.5 shadow-[0_26px_50px_-28px_rgba(11,58,91,0.5)] -rotate-[1.5deg]">
+                <img
+                  src={PAGE_PHOTOS.rabbiMarx}
+                  alt="Rabbi Emeritus Jeffrey Marx by the ocean at sunset"
+                  className="w-full aspect-[171/236] rounded-[1.1rem] object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="px-2 pt-3 pb-1 text-center text-[0.86rem] font-bold uppercase tracking-[0.14em] text-[var(--color-turquoise-deep)]">
+                  1985–2021
+                </figcaption>
+              </figure>
+              <div className="space-y-5">
+                <p className="sms-eyebrow">Rabbi Emeritus</p>
+                <h2 className="text-[var(--color-pacific)] font-semibold text-[2.2rem] sm:text-[2.6rem] lg:text-[3rem] leading-[1.06]">
+                  Rabbi Emeritus Jeffrey{" "}
+                  <span className="sms-swash">Marx</span>
+                </h2>
+                <p className={body}>
+                  Ordained in 1983, Rabbi Marx served as the spiritual leader of
+                  The Santa Monica Synagogue from 1985–2021. In addition to his
+                  training as a family mediator, he holds Masters degrees in
+                  both Jewish Education and Hebrew Letters, and an Honorary
+                  Doctorate in Jewish Education from Hebrew Union College. His
+                  published academic publications have centered on the lives
+                  of Jewish immigrants at the turn of the 19th century.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </PageLayout>
   );
 }

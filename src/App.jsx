@@ -15,14 +15,16 @@ import { RabbiPage } from "./pages/RabbiPage";
 import { ReviewNotes } from "./pages/ReviewNotes";
 import { WorshipPage } from "./pages/WorshipPage";
 
-// Page addresses. They match the old Squarespace site (thesantamonicasynagogue.org)
-// so existing links and bookmarks keep working, plus a few friendlier aliases.
+// Page addresses match the thesms.org page names (about-us, rabbi-shira,
+// activities, join...). The older names (/about, /coaching, /connect,
+// /membership) still work, because the first ShulCloud embed codes use them.
 // "/" is the public homepage (Concept B, the approved design).
 // "/concept-a" and "/review" are leftovers from the client review period.
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/about-us" component={AboutPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/worship" component={WorshipPage} />
       <Route path="/our-holocaust-torah" component={HolocaustTorahPage} />
@@ -34,6 +36,9 @@ function Router() {
       <Route path="/rabbi-shira" component={RabbiPage} />
       <Route path="/connect" component={ActivitiesPage} />
       <Route path="/activities" component={ActivitiesPage} />
+      <Route path="/activities/:section">
+        {(params) => <ActivitiesPage section={params.section} />}
+      </Route>
       <Route path="/connect/:section">
         {(params) => <ActivitiesPage section={params.section} />}
       </Route>

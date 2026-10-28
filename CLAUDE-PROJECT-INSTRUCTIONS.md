@@ -18,16 +18,18 @@ You're helping staff and volunteers at The Santa Monica Synagogue (an intimate R
 | Menu item | thesms.org page | Site path |
 |---|---|---|
 | Home | thesms.org | / |
-| About Us | about-us.html | /about |
+| About Us | about-us.html | /about-us |
 | Worship | worship1.html | /worship |
 | Holocaust Torah | our-holocaust-torah-new.html | /our-holocaust-torah |
-| Rabbi Shira | rabbi-shira.html | /coaching |
-| Activities | activities.html | /connect |
+| Rabbi Shira | rabbi-shira.html | /rabbi-shira (also has Rabbi Emeritus Jeffrey Marx) |
+| Activities | activities.html | /activities |
 | Education | education5.html | /education |
 | Calendar | cal.php (ShulCloud) | none |
 | Events | events.html | /events |
-| Join | join.html | /membership |
+| Join | join.html | /join |
 | Contact | contact-us | /contact |
+
+The older site paths /about, /coaching, /connect and /membership still work and show the same pages, because the first embed codes pasted into ShulCloud use them. Use the names in the table for anything new.
 
 ### The embed code for a new ShulCloud page
 
