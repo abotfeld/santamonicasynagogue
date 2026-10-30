@@ -40,7 +40,11 @@ Lists for these pages (events, classes, movies, sermons, testimonials, photos)
 are in `src/content/pages.js`. To add an event, copy one in `EVENT_LISTINGS`
 and change it; past events move to "Recent events" on their own.
 
-Calendar points to the ShulCloud calendar (thesms.org/cal.php).
+Calendar points to the ShulCloud calendar (thesms.org/cal.php). That page wears
+the new design through ShulCloud → Settings → Advanced: JS Override, which holds
+`shulcloud/calendar-js-override.js`: it hides ShulCloud's old logo, menu and
+footer, frames `/embed/header` above the calendar and `/embed/footer` below it,
+and restyles the calendar. Change the script here first, then paste it there.
 
 Other pages: `/concept-a` (older video-first concept), `/review` (internal
 review notes).
