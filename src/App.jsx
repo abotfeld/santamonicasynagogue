@@ -6,6 +6,7 @@ import { ActivitiesPage } from "./pages/ActivitiesPage";
 import { ConceptA } from "./pages/ConceptA";
 import { ContactPage } from "./pages/ContactPage";
 import { EducationPage } from "./pages/EducationPage";
+import { EmbedFooter, EmbedHeader } from "./pages/EmbedParts";
 import { EventsPage } from "./pages/EventsPage";
 import { HolocaustTorahPage } from "./pages/HolocaustTorahPage";
 import { Home } from "./pages/Home";
@@ -51,6 +52,9 @@ function Router() {
       <Route path="/concept-b" component={Home} />
       <Route path="/concept-a" component={ConceptA} />
       <Route path="/review" component={ReviewNotes} />
+      {/* Menu bar and footer alone, shown around the ShulCloud calendar. */}
+      <Route path="/embed/header" component={EmbedHeader} />
+      <Route path="/embed/footer" component={EmbedFooter} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
