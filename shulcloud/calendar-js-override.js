@@ -28,6 +28,7 @@
     "#maincontent table.calendar_main td{background:#fff!important;border:1px solid #ECE5D8!important;vertical-align:top}" +
     "#maincontent table.calendar_main td.unmonth{background:#F1ECE2!important}" +
     "#maincontent table.calendar_main td.today{background:#E6F7F8!important;box-shadow:inset 0 0 0 2px #1FBFC4}" +
+    "#maincontent table.calendar_main td.today li{color:#000!important}" +
     "#maincontent .dayhead{background:transparent!important;border:0!important;box-shadow:none!important}" +
     "#maincontent .dayhead .day{color:#0B3A5B!important;font-weight:600!important;font-size:1.05rem}" +
     "#maincontent .dayhead .jewishDay{color:#7a8a99!important;font-size:.8rem!important}" +
