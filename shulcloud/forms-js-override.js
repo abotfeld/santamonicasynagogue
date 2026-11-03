@@ -5,19 +5,27 @@
    Like the calendar, it hides ShulCloud's old logo, menu, sidebars and footer,
    puts the new site's menu bar on top and the new footer at the bottom, and
    restyles the form as a card in the site's colors and fonts.
+   "card": simple one-column forms, every field stacked full width.
+   "light": forms with side-by-side fields (Donations, Yahrzeit); keeps
+   ShulCloud's layout and only changes colors, fonts, fields and buttons.
    Source: github.com/abotfeld/santamonicasynagogue shulcloud/forms-js-override.js */
 (function () {
-  var FORMS = ["2026-hanukkah-celebration"];
+  var FORMS = {
+    "2026-hanukkah-celebration": "card",
+    "donations3": "light",
+    "yahrzeit-donation-form": "light"
+  };
 
   var m = window.location.pathname.match(/^\/form\/([^\/?#]+?)(\.html)?\/?$/i);
-  if (!m || FORMS.indexOf(m[1].toLowerCase()) === -1) return;
+  var MODE = m && FORMS[m[1].toLowerCase()];
+  if (!MODE) return;
   if (window.__smsFormDesign) return;
   window.__smsFormDesign = true;
 
   var SITE = "https://admirable-parfait-20b24a.netlify.app";
   var NAVY = "#0B3A5B", TEAL = "#1FBFC4", CREAM = "#F7F3EC", LINE = "#E3DACB";
 
-  var css =
+  var base =
     "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');" +
     "#header,#topnav,#quick_links_search_wrapper,#sidebar_left,.sidebar_left_top_wrapper,#sidebar_right,.breadcrumbpaginationh1section,#footer{display:none!important}" +
     "body,#content,#maincontent,.pad-helper,.content_container,.featured_article{background:" + CREAM + "!important}" +
@@ -29,6 +37,9 @@
     "#maincontent h2.content_title{font-family:Fraunces,Georgia,serif!important;color:" + NAVY + "!important;font-weight:600!important;font-size:clamp(1.9rem,5vw,2.6rem)!important;line-height:1.15!important;text-align:center;margin:40px 0 28px!important}" +
     "#maincontent form.pfbc-form{background:#fff;border:1px solid " + LINE + ";border-radius:20px;padding:32px 36px;box-shadow:0 10px 30px rgba(11,58,91,.07)}" +
     "#maincontent form.pfbc-form fieldset{border:0;margin:0;padding:0;min-width:0}" +
+    "";
+
+  var card =
     "#maincontent .control-group{display:block!important;float:none!important;width:auto!important;margin:0 0 18px!important;padding:0!important}" +
     "#maincontent .control-group.field_width_600{border-bottom:1px solid " + LINE + ";padding-bottom:12px!important;margin-bottom:24px!important}" +
     "#maincontent .control-group.field_width_600 p{color:#2b3a47;font-size:1.02rem;line-height:1.6;margin:0 0 14px}" +
@@ -38,6 +49,19 @@
     "#maincontent .controls{margin:0!important;float:none!important}" +
     "#maincontent .controls input[type=text],#maincontent .controls input[type=email],#maincontent .controls input[type=tel],#maincontent .controls select,#maincontent .controls textarea{width:100%!important;max-width:100%!important;height:auto!important;padding:11px 14px!important;border:1.5px solid " + LINE + "!important;border-radius:12px!important;background:#fff!important;color:#1d2a35!important;font-size:1rem!important;box-shadow:none!important}" +
     "#maincontent .controls textarea{min-height:96px}" +
+    "";
+
+  var light =
+    "#maincontent{max-width:920px!important}" +
+    "#maincontent .control-label{color:" + NAVY + ";font-weight:600}" +
+    "#maincontent .control-label .required{color:#C2410C}" +
+    "#maincontent .control-group p,#maincontent .control-group{color:#2b3a47;line-height:1.5}" +
+    "#maincontent .controls input[type=text],#maincontent .controls input[type=email],#maincontent .controls input[type=tel],#maincontent .controls input[type=number],#maincontent .controls select,#maincontent .controls textarea{padding:8px 12px!important;height:auto!important;border:1.5px solid " + LINE + "!important;border-radius:10px!important;background:#fff!important;color:#1d2a35!important;font-size:1rem!important;box-shadow:none!important;max-width:100%}" +
+    "#maincontent input[type=radio],#maincontent input[type=checkbox]{accent-color:" + NAVY + ";width:17px;height:17px;vertical-align:-3px;margin-right:6px}" +
+    "@media (max-width:600px){#maincontent .control-group{float:none!important;width:auto!important}#maincontent .controls input,#maincontent .controls select,#maincontent .controls textarea{width:100%!important}}" +
+    "";
+
+  var common =
     "#maincontent .controls input:focus,#maincontent .controls select:focus,#maincontent .controls textarea:focus{outline:0!important;border-color:" + TEAL + "!important;box-shadow:0 0 0 3px rgba(31,191,196,.2)!important}" +
     "#maincontent .controls input.money_total{background:#E6F7F8!important;border-color:#BCE9EB!important;color:" + NAVY + "!important;font-weight:600;font-size:1.15rem!important}" +
     "#maincontent .e-message{background:#FBF8F2!important;border:1px solid " + LINE + "!important;border-radius:12px!important;color:#4a5866!important;padding:12px 16px!important;margin:8px 0 20px!important;font-size:.9rem}" +
@@ -62,7 +86,7 @@
   function start() {
     var style = document.createElement("style");
     style.id = "sms-form-design";
-    style.textContent = css;
+    style.textContent = base + (MODE === "card" ? card : light) + common;
     document.head.appendChild(style);
 
     var content = document.getElementById("content");
