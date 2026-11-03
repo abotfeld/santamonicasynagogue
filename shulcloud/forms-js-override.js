@@ -66,6 +66,7 @@
 
   var payment =
     "#maincontent .pad-helper{background:#fff!important;border:1px solid " + LINE + ";border-radius:20px;padding:32px 36px!important;margin:40px 0 0;box-shadow:0 10px 30px rgba(11,58,91,.07)}" +
+    "#maincontent .pad-helper div,#maincontent .pad-helper form,#maincontent .pad-helper fieldset,#maincontent .pad-helper table,#maincontent .pad-helper td{background:transparent!important}" +
     "#maincontent h1,#maincontent h2{font-family:Fraunces,Georgia,serif!important;color:" + NAVY + "!important;font-weight:600!important;font-size:clamp(1.7rem,4.5vw,2.3rem)!important;line-height:1.2!important;text-transform:none!important}" +
     "#maincontent,#maincontent td,#maincontent th,#maincontent label{color:#2b3a47;font-size:1rem}" +
     "#maincontent strong,#maincontent b{color:" + NAVY + "}" +
@@ -73,7 +74,7 @@
     "#maincontent input[type=radio],#maincontent input[type=checkbox]{accent-color:" + NAVY + ";width:17px;height:17px;vertical-align:-3px;margin-right:6px}" +
     "#maincontent input[type=submit],#maincontent input[type=button],#maincontent button,#maincontent .btn,#maincontent a.button,#maincontent .ui-button{background:" + NAVY + "!important;background-image:none!important;color:#fff!important;border:0!important;border-radius:999px!important;padding:14px 40px!important;font-size:1.05rem!important;font-weight:600!important;text-transform:none!important;text-shadow:none!important;box-shadow:none!important;cursor:pointer;height:auto!important}" +
     "#maincontent input[type=submit]:hover,#maincontent input[type=button]:hover,#maincontent button:hover,#maincontent .btn:hover{background:" + TEAL + "!important}" +
-    "@media (max-width:600px){#maincontent .pad-helper{padding:22px 18px!important;border-radius:16px}#maincontent table,#maincontent tbody,#maincontent tr,#maincontent td{display:block;width:auto!important;text-align:left!important}}" +
+    "@media (max-width:600px){#maincontent .pad-helper{padding:22px 18px!important;border-radius:16px}}" +
     "";
 
   var common =
