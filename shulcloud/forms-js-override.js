@@ -8,6 +8,8 @@
    "card": simple one-column forms, every field stacked full width.
    "light": forms with side-by-side fields (Donations, Yahrzeit); keeps
    ShulCloud's layout and only changes colors, fonts, fields and buttons.
+   "payment": /payment.php, the shared payment step every form sends people
+   to (Confirm Payment, card details) and the Online Payments page.
    Source: github.com/abotfeld/santamonicasynagogue shulcloud/forms-js-override.js */
 (function () {
   var FORMS = {
@@ -18,6 +20,7 @@
 
   var m = window.location.pathname.match(/^\/form\/([^\/?#]+?)(\.html)?\/?$/i);
   var MODE = m && FORMS[m[1].toLowerCase()];
+  if (/^\/payment\.php$/i.test(window.location.pathname)) MODE = "payment";
   if (!MODE) return;
   if (window.__smsFormDesign) return;
   window.__smsFormDesign = true;
@@ -61,6 +64,18 @@
     "@media (max-width:600px){#maincontent .control-group{float:none!important;width:auto!important}#maincontent .controls input,#maincontent .controls select,#maincontent .controls textarea{width:100%!important}}" +
     "";
 
+  var payment =
+    "#maincontent .pad-helper{background:#fff!important;border:1px solid " + LINE + ";border-radius:20px;padding:32px 36px!important;margin:40px 0 0;box-shadow:0 10px 30px rgba(11,58,91,.07)}" +
+    "#maincontent h1,#maincontent h2{font-family:Fraunces,Georgia,serif!important;color:" + NAVY + "!important;font-weight:600!important;font-size:clamp(1.7rem,4.5vw,2.3rem)!important;line-height:1.2!important;text-transform:none!important}" +
+    "#maincontent,#maincontent td,#maincontent th,#maincontent label{color:#2b3a47;font-size:1rem}" +
+    "#maincontent strong,#maincontent b{color:" + NAVY + "}" +
+    "#maincontent input[type=text],#maincontent input[type=email],#maincontent input[type=tel],#maincontent input[type=number],#maincontent input[type=password],#maincontent select,#maincontent textarea{padding:9px 12px!important;height:auto!important;border:1.5px solid " + LINE + "!important;border-radius:10px!important;background:#fff!important;color:#1d2a35!important;font-size:1rem!important;box-shadow:none!important;max-width:100%}" +
+    "#maincontent input[type=radio],#maincontent input[type=checkbox]{accent-color:" + NAVY + ";width:17px;height:17px;vertical-align:-3px;margin-right:6px}" +
+    "#maincontent input[type=submit],#maincontent input[type=button],#maincontent button,#maincontent .btn,#maincontent a.button,#maincontent .ui-button{background:" + NAVY + "!important;background-image:none!important;color:#fff!important;border:0!important;border-radius:999px!important;padding:14px 40px!important;font-size:1.05rem!important;font-weight:600!important;text-transform:none!important;text-shadow:none!important;box-shadow:none!important;cursor:pointer;height:auto!important}" +
+    "#maincontent input[type=submit]:hover,#maincontent input[type=button]:hover,#maincontent button:hover,#maincontent .btn:hover{background:" + TEAL + "!important}" +
+    "@media (max-width:600px){#maincontent .pad-helper{padding:22px 18px!important;border-radius:16px}#maincontent table,#maincontent tbody,#maincontent tr,#maincontent td{display:block;width:auto!important;text-align:left!important}}" +
+    "";
+
   var common =
     "#maincontent .controls input:focus,#maincontent .controls select:focus,#maincontent .controls textarea:focus{outline:0!important;border-color:" + TEAL + "!important;box-shadow:0 0 0 3px rgba(31,191,196,.2)!important}" +
     "#maincontent .controls input.money_total{background:#E6F7F8!important;border-color:#BCE9EB!important;color:" + NAVY + "!important;font-weight:600;font-size:1.15rem!important}" +
@@ -86,7 +101,7 @@
   function start() {
     var style = document.createElement("style");
     style.id = "sms-form-design";
-    style.textContent = base + (MODE === "card" ? card : light) + common;
+    style.textContent = base + (MODE === "card" ? card : MODE === "payment" ? payment : light) + common;
     document.head.appendChild(style);
 
     var content = document.getElementById("content");
