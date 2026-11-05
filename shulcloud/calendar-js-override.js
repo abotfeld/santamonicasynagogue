@@ -58,12 +58,13 @@
   // as text in the event pop-up. Turn thesms.org addresses into links.
   function linkifyPopovers() {
     var re = /(https:\/\/www\.thesms\.org\/[^\s<>"']+[^\s<>"'.,;:!?)])/g;
-    document.querySelectorAll("li[data-content]").forEach(function (li) {
-      var html = li.getAttribute("data-content");
+    document.querySelectorAll("li[data-popuphtml], li[data-content]").forEach(function (li) {
+      var attr = li.hasAttribute("data-popuphtml") ? "data-popuphtml" : "data-content";
+      var html = li.getAttribute(attr);
       if (!html || !re.test(html) || /sms-autolink/.test(html)) return;
       re.lastIndex = 0;
       li.setAttribute(
-        "data-content",
+        attr,
         html.replace(re, function (url) {
           var label = /\/form\//.test(url) ? "Register here" : url.replace(/^https:\/\/www\./, "");
           return '<a class="sms-autolink" href="' + url + '">' + label + "</a>";
