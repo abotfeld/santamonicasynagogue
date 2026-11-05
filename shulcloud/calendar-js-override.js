@@ -29,6 +29,11 @@
     "#maincontent table.calendar_main td.unmonth{background:#F1ECE2!important}" +
     "#maincontent table.calendar_main td.today{background:#E6F7F8!important;box-shadow:inset 0 0 0 2px #1FBFC4}" +
     "#maincontent table.calendar_main td.today li{color:#000!important}" +
+    // ShulCloud's old theme turns text white when a day is hovered or tapped
+    // (it had a dark hover color); on our light cells that hid the events.
+    "#maincontent table.calendar_main td:hover li{color:#000!important}" +
+    "#maincontent table.calendar_main td:hover a{color:#12628F!important}" +
+    ".popover a.sms-autolink{color:#12628F!important;font-weight:600;text-decoration:underline}" +
     "#maincontent .dayhead{background:transparent!important;border:0!important;box-shadow:none!important}" +
     "#maincontent .dayhead .day{color:#0B3A5B!important;font-weight:600!important;font-size:1.05rem}" +
     "#maincontent .dayhead .jewishDay{color:#7a8a99!important;font-size:.8rem!important}" +
@@ -49,7 +54,26 @@
     return f;
   }
 
+  // Event descriptions are plain text, so a form address typed there shows
+  // as text in the event pop-up. Turn thesms.org addresses into links.
+  function linkifyPopovers() {
+    var re = /(https:\/\/www\.thesms\.org\/[^\s<>"']+[^\s<>"'.,;:!?)])/g;
+    document.querySelectorAll("li[data-content]").forEach(function (li) {
+      var html = li.getAttribute("data-content");
+      if (!html || !re.test(html) || /sms-autolink/.test(html)) return;
+      re.lastIndex = 0;
+      li.setAttribute(
+        "data-content",
+        html.replace(re, function (url) {
+          var label = /\/form\//.test(url) ? "Register here" : url.replace(/^https:\/\/www\./, "");
+          return '<a class="sms-autolink" href="' + url + '">' + label + "</a>";
+        })
+      );
+    });
+  }
+
   function start() {
+    linkifyPopovers();
     var style = document.createElement("style");
     style.id = "sms-cal-design";
     style.textContent = css;
