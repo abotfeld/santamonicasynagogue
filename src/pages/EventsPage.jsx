@@ -8,6 +8,25 @@ import { CONTACT, EVENTS, NAV_LINKS } from "../content/site";
 const CALENDAR_URL = NAV_LINKS.find((link) => link.label === "Calendar").href;
 const SHABBAT = EVENTS.find((event) => event.month === "Every");
 
+export function MemberLoginNote({ href, dark = false }) {
+  return (
+    <p
+      className={`mt-4 text-[1.02rem] leading-relaxed ${dark ? "text-white/80" : "text-[var(--color-ink)]/72"}`}
+    >
+      <span className="font-semibold">Member?</span>{" "}
+      <a
+        href={href}
+        target="_top"
+        className={`font-semibold underline underline-offset-2 ${dark ? "text-[var(--color-cyan-light)]" : "text-[var(--color-turquoise-deep)]"}`}
+      >
+        Log in first
+      </a>{" "}
+      and your details fill in automatically. Guests can register without
+      logging in.
+    </p>
+  );
+}
+
 function EventCard({ event, past, index }) {
   return (
     <article
@@ -63,7 +82,7 @@ function EventCard({ event, past, index }) {
             {event.paragraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}
-            {event.list && (
+            {event.list?.length > 0 && (
               <div>
                 <p className="font-semibold text-[var(--color-pacific)] mb-2">
                   {event.listTitle}
@@ -96,6 +115,7 @@ function EventCard({ event, past, index }) {
               <ArrowRight className="h-4.5 w-4.5" />
             </a>
           )}
+          {event.loginHref && !past && <MemberLoginNote href={event.loginHref} />}
         </div>
       </div>
     </article>
