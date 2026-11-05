@@ -62,6 +62,14 @@ content:
             label: Button link (optional)
             description: Usually the ShulCloud form for this event, e.g. https://www.thesms.org/form/...
             type: string
+          - name: memberLogin
+            label: Show "Members, log in first" link
+            description: Adds a login link under the button that brings members back to the form, with their details filled in.
+            type: boolean
+          - name: featured
+            label: Promote on the homepage
+            description: Shows this event in a large banner near the top of the homepage until the date passes. Use the Photo field for the flyer.
+            type: boolean
           - name: photo
             label: Photo (optional)
             type: image

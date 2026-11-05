@@ -123,6 +123,13 @@ export const EVENT_LISTINGS = eventsData.events
         e.buttonLabel && e.buttonLink
           ? { label: e.buttonLabel, href: e.buttonLink }
           : null,
+      // "Members, log in first": ShulCloud's login page sends people back
+      // to the form afterwards, with their details filled in.
+      loginHref:
+        e.memberLogin && e.buttonLink
+          ? `https://www.thesms.org/login.php?url=${encodeURIComponent(e.buttonLink)}`
+          : null,
+      featured: Boolean(e.featured),
       photo: e.photo ? asset(e.photo) : null,
     };
   })

@@ -11,16 +11,15 @@ import { Donate } from "../sections/Donate";
 import { Doors } from "../sections/Doors";
 import { Events } from "../sections/Events";
 import { Faq } from "../sections/Faq";
+import { FeaturedEvent } from "../sections/FeaturedEvent";
 import { Generations } from "../sections/Generations";
 import { HeroCollage } from "../sections/HeroCollage";
-import { HighHolyDays } from "../sections/HighHolyDays";
 import { HolocaustTorah } from "../sections/HolocaustTorah";
 import { LearningAndCommunity } from "../sections/LearningAndCommunity";
 import { Rabbi } from "../sections/Rabbi";
 import { ShabbatBand } from "../sections/ShabbatBand";
 import { Softball } from "../sections/Softball";
 import { SpecialVideo } from "../sections/SpecialVideo";
-import { Tashlich } from "../sections/Tashlich";
 import { Testimonials } from "../sections/Testimonials";
 import { WineClub } from "../sections/WineClub";
 
@@ -40,11 +39,15 @@ export function Home() {
         variantSwitcher={embedded ? undefined : <ReviewSwitcher />}
       />
       <main>
-        {/* Order: welcome → this week → ways in → visiting → who we are →
-            learning & community → joining → calendar → seasonal (High Holy
-            Days, Tashlich) → clubs → our Torah → giving */}
+        {/* Order: welcome → this week → featured upcoming event → ways in →
+            visiting → who we are → learning & community → joining →
+            calendar → our Torah → clubs → giving.
+            Seasonal High Holy Days and Tashlich sections are off the
+            homepage outside the season; bring them back by adding
+            <HighHolyDays /> and <Tashlich /> (src/sections) after <Events />. */}
         <HeroCollage />
         <ShabbatBand />
+        <FeaturedEvent />
         <Doors />
         <Faq />
         <SpecialVideo />
@@ -53,11 +56,9 @@ export function Home() {
         <LearningAndCommunity />
         <Testimonials />
         <Events />
-        <HighHolyDays />
-        <Tashlich />
+        <HolocaustTorah />
         <Softball />
         <WineClub />
-        <HolocaustTorah />
         <Generations />
         <Donate />
       </main>
