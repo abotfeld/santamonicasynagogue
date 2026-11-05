@@ -53,9 +53,9 @@ function EventCard({ event, past, index }) {
           )}
         </div>
         <div className="min-w-0">
-          {event.photo && (
+          {(event.photo || event.bannerPhoto) && (
             <img
-              src={event.photo}
+              src={event.photo || event.bannerPhoto}
               alt=""
               className="w-full max-h-[22rem] object-cover rounded-[1.1rem] mb-6"
               loading="lazy"

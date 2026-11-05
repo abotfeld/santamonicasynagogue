@@ -36,6 +36,24 @@ export function FeaturedEvent() {
                 "radial-gradient(circle, var(--accent-strong), transparent 66%)",
             }}
           />
+          {event.bannerPhoto && (
+            <div className="relative h-44 sm:h-56 md:h-72">
+              <img
+                src={event.bannerPhoto}
+                alt="Hanukkiyot lit together at The Santa Monica Synagogue"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-x-0 bottom-0 h-2/3"
+                style={{
+                  background:
+                    "linear-gradient(to top, var(--color-pacific), transparent)",
+                }}
+              />
+            </div>
+          )}
           <div
             className={`relative grid gap-10 items-center px-7 py-11 md:px-14 md:py-14 ${event.photo ? "lg:grid-cols-[1.2fr_0.8fr] lg:gap-14" : ""}`}
           >

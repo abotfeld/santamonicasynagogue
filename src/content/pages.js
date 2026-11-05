@@ -131,6 +131,9 @@ export const EVENT_LISTINGS = eventsData.events
           : null,
       featured: Boolean(e.featured),
       photo: e.photo ? asset(e.photo) : null,
+      // Wide photo shown as a strip across the top of the homepage banner
+      // and the Events card (e.g. last year's menorah lighting).
+      bannerPhoto: e.bannerPhoto ? asset(e.bannerPhoto) : null,
     };
   })
   .sort((a, b) => b.isoDate.localeCompare(a.isoDate));
