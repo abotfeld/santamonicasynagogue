@@ -10,6 +10,12 @@
    ShulCloud's layout and only changes colors, fonts, fields and buttons.
    "payment": /payment.php, the shared payment step every form sends people
    to (Confirm Payment, card details) and the Online Payments page.
+   "event": calendar event pages (/event/....html). Same look as "payment",
+   hides the old sidebars (Shabbat Services, Upcoming Events) and turns web
+   addresses typed in the event description into real links.
+   On form and event pages, visitors who are not logged in also see a
+   "Member? Log in first" line; ShulCloud brings them back to the same page
+   after login with their details filled in.
    Source: github.com/abotfeld/santamonicasynagogue shulcloud/forms-js-override.js */
 (function () {
   var FORMS = {
@@ -21,6 +27,7 @@
   var m = window.location.pathname.match(/^\/form\/([^\/?#]+?)(\.html)?\/?$/i);
   var MODE = m && FORMS[m[1].toLowerCase()];
   if (/^\/payment\.php$/i.test(window.location.pathname)) MODE = "payment";
+  if (/^\/event\/[^\/]+\.html$/i.test(window.location.pathname)) MODE = "event";
   if (!MODE) return;
   if (window.__smsFormDesign) return;
   window.__smsFormDesign = true;
@@ -77,6 +84,13 @@
     "@media (max-width:600px){#maincontent .pad-helper{padding:22px 18px!important;border-radius:16px}}" +
     "";
 
+  var login =
+    ".sms-login-note{background:#E6F7F8;border:1px solid #BCE9EB;border-radius:14px;padding:14px 18px;margin:0 0 22px;color:#2b3a47;font-size:1rem;line-height:1.5}" +
+    ".sms-login-note strong{color:" + NAVY + "}" +
+    ".sms-login-note a{color:" + NAVY + "!important;font-weight:600;text-decoration:underline}" +
+    "#maincontent a.sms-autolink{color:#12628F!important;font-weight:600;text-decoration:underline;word-break:break-word}" +
+    "";
+
   var common =
     "#maincontent .controls input:focus,#maincontent .controls select:focus,#maincontent .controls textarea:focus{outline:0!important;border-color:" + TEAL + "!important;box-shadow:0 0 0 3px rgba(31,191,196,.2)!important}" +
     "#maincontent .controls input.money_total{background:#E6F7F8!important;border-color:#BCE9EB!important;color:" + NAVY + "!important;font-weight:600;font-size:1.15rem!important}" +
@@ -102,13 +116,73 @@
   function start() {
     var style = document.createElement("style");
     style.id = "sms-form-design";
-    style.textContent = base + (MODE === "card" ? card : MODE === "payment" ? payment : light) + common;
+    style.textContent = base + (MODE === "card" ? card : MODE === "light" ? light : payment) + login + common;
     document.head.appendChild(style);
+
+    if (MODE === "event") linkify(document.getElementById("maincontent"));
+    if (MODE !== "payment") loginNote();
 
     var content = document.getElementById("content");
     if (!content || !content.parentNode) return;
     content.parentNode.insertBefore(frame("sms-form-header", "/embed/header?embed=1&nav=1"), content);
     content.parentNode.insertBefore(frame("sms-form-footer", "/embed/footer?embed=1"), content.nextSibling);
+  }
+
+  // Web addresses typed into ShulCloud text boxes show as plain text.
+  // Turn them into links (DOM only, no HTML strings).
+  function linkify(root) {
+    if (!root) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) {
+      if (/https?:\/\//.test(n.nodeValue) && !(n.parentNode && n.parentNode.closest && n.parentNode.closest("a,script,style,textarea"))) nodes.push(n);
+    }
+    nodes.forEach(function (node) {
+      var parts = node.nodeValue.split(/(https?:\/\/[^\s<>"]+[^\s<>".,;:!?)])/);
+      if (parts.length < 2) return;
+      var frag = document.createDocumentFragment();
+      parts.forEach(function (part, i) {
+        if (i % 2 === 1) {
+          var a = document.createElement("a");
+          a.href = part;
+          a.className = "sms-autolink";
+          a.textContent = /\/form\//.test(part) ? "Register here" : part.replace(/^https?:\/\/(www\.)?/, "");
+          frag.appendChild(a);
+        } else if (part) {
+          frag.appendChild(document.createTextNode(part));
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  // "Member? Log in first" for visitors who are not logged in. Only shown on
+  // event pages that link to a ShulCloud form, and on the forms themselves.
+  function loginNote() {
+    if (document.querySelector('a[href*="logout"]')) return;
+    var target = window.location.href.split("#")[0];
+    var anchor = null;
+    if (MODE === "event") {
+      var formLink = document.querySelector('#maincontent a[href*="/form/"]');
+      if (!formLink) return;
+      target = formLink.href;
+      anchor = formLink.closest("p,div") || formLink;
+    } else {
+      anchor = document.querySelector("#maincontent form.pfbc-form");
+      if (!anchor) return;
+    }
+    var p = document.createElement("p");
+    p.className = "sms-login-note";
+    var b = document.createElement("strong");
+    b.textContent = "Member? ";
+    var a = document.createElement("a");
+    a.href = "/login.php?url=" + encodeURIComponent(target);
+    a.textContent = "Log in first";
+    p.appendChild(b);
+    p.appendChild(a);
+    p.appendChild(document.createTextNode(" and your name, email and phone fill in automatically. Guests can continue without logging in."));
+    if (MODE === "event") anchor.parentNode.insertBefore(p, anchor.nextSibling);
+    else anchor.parentNode.insertBefore(p, anchor);
   }
 
   window.addEventListener("message", function (e) {
