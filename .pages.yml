@@ -73,6 +73,10 @@ content:
           - name: photo
             label: Photo (optional)
             type: image
+          - name: bannerPhoto
+            label: Wide photo for the homepage banner (optional)
+            description: A wide picture shown across the top of the homepage banner, e.g. last year's menorah lighting.
+            type: image
       - name: yearRound
         label: Year-round highlights (homepage)
         description: Shown on the homepage next to Shabbat when there are no upcoming dated events.
