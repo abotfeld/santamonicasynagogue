@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { jumpTo } from "../lib/jumpTo";
+import { BackToTop } from "../components/BackToTop";
 import { Footer } from "../components/Footer";
 import { ReviewSwitcher } from "../components/ReviewSwitcher";
 import { StickyJoinBar } from "../components/StickyJoinBar";
@@ -33,6 +34,7 @@ export function Home() {
   const embedded = isEmbedded();
   return (
     <div className="min-h-screen bg-[var(--color-sand)]">
+      <span id="page-top" aria-hidden className="block h-0" />
       <TopBar
         overHero={false}
         showNav
@@ -48,19 +50,33 @@ export function Home() {
         <HeroCollage />
         <ShabbatBand />
         <FeaturedEvent />
+        <BackToTop />
         <Doors />
+        <BackToTop />
         <Faq />
+        <BackToTop />
         <SpecialVideo />
+        <BackToTop />
         <About />
+        <BackToTop />
         <Rabbi />
+        <BackToTop />
         <LearningAndCommunity />
+        <BackToTop />
         <Testimonials />
+        <BackToTop />
         <Events />
+        <BackToTop />
         <HolocaustTorah />
+        <BackToTop />
         <Softball />
+        <BackToTop />
         <WineClub />
+        <BackToTop />
         <Generations />
+        <BackToTop />
         <Donate />
+        <BackToTop />
       </main>
       <Footer />
       <StickyJoinBar />
