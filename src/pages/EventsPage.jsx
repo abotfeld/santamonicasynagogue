@@ -56,8 +56,12 @@ function EventCard({ event, past, index }) {
           {(event.photo || event.bannerPhoto) && (
             <img
               src={event.photo || event.bannerPhoto}
-              alt=""
-              className="w-full max-h-[22rem] object-cover rounded-[1.1rem] mb-6"
+              alt={event.photo ? `${event.title} flyer` : ""}
+              className={
+                event.photo
+                  ? "w-full max-w-md h-auto rounded-[1.1rem] shadow-lg mb-6"
+                  : "w-full max-h-[22rem] object-cover rounded-[1.1rem] mb-6"
+              }
               loading="lazy"
             />
           )}
