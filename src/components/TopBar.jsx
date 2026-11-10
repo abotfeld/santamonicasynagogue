@@ -6,7 +6,28 @@ import { SmartLink } from "./SmartLink";
 import { StarOfDavid } from "./StarOfDavid";
 import { Wordmark } from "./Wordmark";
 
+// thesms.org tells the embedded site whether the visitor is logged in
+// (ShulCloud JS Override posts {type: "sms:member", loggedIn}).
+function useLoggedIn() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  useEffect(() => {
+    const onMessage = (e) => {
+      if (e.origin !== "https://www.thesms.org") return;
+      const d = e.data;
+      if (d && d.type === "sms:member") setLoggedIn(Boolean(d.loggedIn));
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
+  return loggedIn;
+}
+
+const ACCOUNT_URL = "https://www.thesms.org/member";
+
 export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
+  const loggedIn = useLoggedIn();
+  const loginHref = loggedIn ? ACCOUNT_URL : LINKS.login;
+  const loginLabel = loggedIn ? "My Account" : "Member Login";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
@@ -40,15 +61,24 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
               {CONTACT.phone}
             </a>
           </div>
+          {isEmbedded() && (
+            <a
+              href={loginHref}
+              target="_top"
+              className="md:hidden font-semibold underline decoration-[var(--color-turquoise)]/60 underline-offset-4 hover:text-[var(--color-cyan-light)] transition-colors"
+            >
+              {loginLabel}
+            </a>
+          )}
           <div className="hidden md:flex items-center gap-6 whitespace-nowrap">
             {variantSwitcher}
             {isEmbedded() && (
               <a
-                href={LINKS.login}
+                href={loginHref}
                 target="_top"
                 className="font-semibold hover:text-[var(--color-cyan-light)] transition-colors"
               >
-                Member Login
+                {loginLabel}
               </a>
             )}
             <span className="flex items-center gap-2">
@@ -120,12 +150,12 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
                   </SmartLink>
                 ))}
                 <a
-                  href={LINKS.login}
+                  href={loginHref}
                   target="_blank"
                   rel="noreferrer"
                   className="py-3 text-[1.02rem] font-medium text-[var(--color-turquoise-deep)]"
                 >
-                  Member Login
+                  {loginLabel}
                 </a>
               </nav>
             </div>
