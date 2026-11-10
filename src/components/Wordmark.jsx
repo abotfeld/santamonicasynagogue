@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { SmartLink } from "./SmartLink";
 import { ScrollMark } from "./ScrollMark";
 
 export function Wordmark({ tone = "dark", compact = false }) {
@@ -10,7 +10,7 @@ export function Wordmark({ tone = "dark", compact = false }) {
       : "text-[var(--color-turquoise-deep)]";
   const markStroke = tone === "light" ? "#7FE0E8" : "#1FBFC4";
   return (
-    <Link
+    <SmartLink
       href="/"
       aria-label="The Santa Monica Synagogue home"
       className="flex items-center gap-2 sm:gap-3 group shrink-0"
@@ -36,6 +36,6 @@ export function Wordmark({ tone = "dark", compact = false }) {
           Reform · Since 1981
         </span>
       </span>
-    </Link>
+    </SmartLink>
   );
 }
