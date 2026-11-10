@@ -52,7 +52,7 @@ export const NAV_LINKS = [
   { label: "About Us", href: "/about-us" },
   { label: "Worship", href: "/worship" },
   { label: "Holocaust Torah", href: "/our-holocaust-torah" },
-  { label: "Rabbi Shira", href: "/rabbi-shira" },
+  { label: "Our Rabbis", href: "/rabbi-shira" },
   { label: "Activities", href: "/activities" },
   { label: "Education", href: "/education" },
   { label: "Calendar", href: LINKS.calendar },
