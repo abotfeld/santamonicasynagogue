@@ -72,7 +72,7 @@ export function Footer() {
                   rel="noreferrer"
                   className="hover:text-[var(--color-cyan-light)] transition-colors"
                 >
-                  New Member Intake
+                  New Member Information
                 </a>
               </li>
               <li>
@@ -97,12 +97,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={LINKS.hhd}
+                  href="https://www.thesms.org/form/2026-hanukkah-celebration"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-[var(--color-cyan-light)] transition-colors"
                 >
-                  High Holy Days
+                  Hanukkah Dinner
                 </a>
               </li>
               <li>
