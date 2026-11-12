@@ -67,7 +67,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-[1.06rem]">
               <li>
                 <a
-                  href={LINKS.intake}
+                  href={LINKS.newMemberIntake}
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-[var(--color-cyan-light)] transition-colors"
