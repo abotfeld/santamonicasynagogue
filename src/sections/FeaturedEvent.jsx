@@ -73,7 +73,7 @@ export function FeaturedEvent() {
                   {event.date}
                 </span>
                 {event.time && (
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 font-semibold text-white">
                     <Clock className="h-4.5 w-4.5" />
                     {event.time}
                   </span>
