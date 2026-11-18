@@ -30,7 +30,15 @@ export function EducationPage() {
         image={PAGE_PHOTOS.shalomCloth}
         imageAlt="The word Shalom embroidered in gold on a blue cloth"
       />
-      <section className="relative bg-[var(--color-sand)] pt-10 pb-20 md:pb-24">
+      <ClassesSection />
+    </PageLayout>
+  );
+}
+
+// Weekly classes with Rabbi Shira. Also used on the Community page.
+export function ClassesSection({ id }) {
+  return (
+      <section id={id} className="relative bg-[var(--color-sand)] scroll-mt-28 pt-10 pb-20 md:pb-24">
         <div className="container">
           <div className="sms-reveal mb-8">
             <p className="sms-eyebrow mb-3">Weekly classes with Rabbi Shira</p>
@@ -80,6 +88,5 @@ export function EducationPage() {
           </p>
         </div>
       </section>
-    </PageLayout>
   );
 }
