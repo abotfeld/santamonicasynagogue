@@ -2,12 +2,10 @@ import { Route, Router as WouterRouter, Switch } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { AboutPage } from "./pages/AboutPage";
-import { ActivitiesPage } from "./pages/ActivitiesPage";
+import { CommunityPage } from "./pages/CommunityPage";
 import { ConceptA } from "./pages/ConceptA";
 import { ContactPage } from "./pages/ContactPage";
-import { EducationPage } from "./pages/EducationPage";
 import { EmbedFooter, EmbedHeader } from "./pages/EmbedParts";
-import { EventsPage } from "./pages/EventsPage";
 import { HolocaustTorahPage } from "./pages/HolocaustTorahPage";
 import { Home } from "./pages/Home";
 import { JoinPage } from "./pages/JoinPage";
@@ -35,17 +33,24 @@ function Router() {
       </Route>
       <Route path="/coaching" component={RabbiPage} />
       <Route path="/rabbi-shira" component={RabbiPage} />
-      <Route path="/connect" component={ActivitiesPage} />
-      <Route path="/activities" component={ActivitiesPage} />
+      {/* Community = Events + Activities + Education on one page.
+          The old addresses open it at their part. */}
+      <Route path="/community" component={CommunityPage} />
+      <Route path="/events">{() => <CommunityPage />}</Route>
+      <Route path="/events/:event">{() => <CommunityPage />}</Route>
+      <Route path="/connect">{() => <CommunityPage section="clubs" />}</Route>
+      <Route path="/activities">
+        {() => <CommunityPage section="clubs" />}
+      </Route>
       <Route path="/activities/:section">
-        {(params) => <ActivitiesPage section={params.section} />}
+        {(params) => <CommunityPage section={params.section} />}
       </Route>
       <Route path="/connect/:section">
-        {(params) => <ActivitiesPage section={params.section} />}
+        {(params) => <CommunityPage section={params.section} />}
       </Route>
-      <Route path="/education" component={EducationPage} />
-      <Route path="/events" component={EventsPage} />
-      <Route path="/events/:event" component={EventsPage} />
+      <Route path="/education">
+        {() => <CommunityPage section="classes" />}
+      </Route>
       <Route path="/membership" component={JoinPage} />
       <Route path="/join" component={JoinPage} />
       <Route path="/contact" component={ContactPage} />

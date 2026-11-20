@@ -122,11 +122,99 @@ function EventCard({ event, past, index }) {
   );
 }
 
-export function EventsPage() {
+function splitEvents() {
   const upcoming = EVENT_LISTINGS.filter(
     (event) => !isPast(event.isoDate),
   ).reverse();
   const past = EVENT_LISTINGS.filter((event) => isPast(event.isoDate));
+  return { upcoming, past };
+}
+
+// Weekly Shabbat, upcoming events and the calendar link.
+// Also used on the Community page.
+export function UpcomingEvents({ id }) {
+  const { upcoming } = splitEvents();
+  return (
+    <section
+      id={id}
+      className="relative bg-[var(--color-sand)] pt-6 pb-14 md:pb-16 scroll-mt-28"
+    >
+      <div className="container space-y-6">
+        {/* Weekly Shabbat */}
+        <article className="sms-reveal sms-plain-card sms-plain-card-accent rounded-[1.5rem] p-7 md:p-9 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+          <div className="flex items-center gap-5">
+            <div className="flex flex-col items-center justify-center h-20 w-20 rounded-2xl shrink-0 bg-[var(--color-cyan-pale)] text-[var(--color-ocean)]">
+              <span className="text-[0.85rem] font-bold uppercase tracking-widest">
+                {SHABBAT.month}
+              </span>
+              <span className="font-[family-name:var(--font-display)] text-[1.7rem] font-semibold leading-none">
+                {SHABBAT.day}
+              </span>
+            </div>
+            <div>
+              <h3 className="font-[family-name:var(--font-display)] text-[1.7rem] md:text-[2rem] font-semibold text-[var(--color-pacific)] leading-tight">
+                {SHABBAT.title}
+              </h3>
+              <p className="text-[1.1rem] text-[var(--color-ink)]/75 mt-1">
+                {SHABBAT.time} · {SHABBAT.place}
+              </p>
+            </div>
+          </div>
+          <a
+            href={CONTACT.facebook}
+            target="_blank"
+            rel="noreferrer"
+            className="sms-btn sms-btn-outline !px-6 !py-3.5 shrink-0"
+          >
+            Watch live on Facebook
+          </a>
+        </article>
+
+        {upcoming.map((event, index) => (
+          <EventCard key={event.title} event={event} index={index} />
+        ))}
+
+        <div className="sms-reveal flex flex-wrap items-center justify-between gap-4 rounded-[1.5rem] bg-[var(--color-pacific)] px-7 py-6 md:px-10 text-white">
+          <p className="text-[1.18rem]">
+            See every service, class and celebration on the calendar.
+          </p>
+          <a
+            href={CALENDAR_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="sms-btn sms-btn-primary"
+          >
+            <Calendar className="h-4.5 w-4.5" />
+            Open the calendar
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Past events with photos. Also used on the Community page.
+export function RecentEvents({ id }) {
+  const { past } = splitEvents();
+  if (past.length === 0) return null;
+  return (
+    <section
+      id={id}
+      className="relative bg-[var(--color-sand)] pt-6 pb-20 md:pb-24 scroll-mt-28"
+    >
+      <div className="container">
+        <p className="sms-eyebrow mb-5 sms-reveal">Recent events</p>
+        <div className="space-y-6">
+          {past.map((event, index) => (
+            <EventCard key={event.title} event={event} past index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function EventsPage() {
   return (
     <PageLayout>
       <PageHero
@@ -142,74 +230,8 @@ export function EventsPage() {
           </p>
         }
       />
-      <section className="relative bg-[var(--color-sand)] pt-6 pb-20 md:pb-24">
-        <div className="container space-y-6">
-          {/* Weekly Shabbat */}
-          <article className="sms-reveal sms-plain-card sms-plain-card-accent rounded-[1.5rem] p-7 md:p-9 flex flex-col md:flex-row md:items-center gap-6 justify-between">
-            <div className="flex items-center gap-5">
-              <div className="flex flex-col items-center justify-center h-20 w-20 rounded-2xl shrink-0 bg-[var(--color-cyan-pale)] text-[var(--color-ocean)]">
-                <span className="text-[0.85rem] font-bold uppercase tracking-widest">
-                  {SHABBAT.month}
-                </span>
-                <span className="font-[family-name:var(--font-display)] text-[1.7rem] font-semibold leading-none">
-                  {SHABBAT.day}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-[family-name:var(--font-display)] text-[1.7rem] md:text-[2rem] font-semibold text-[var(--color-pacific)] leading-tight">
-                  {SHABBAT.title}
-                </h3>
-                <p className="text-[1.1rem] text-[var(--color-ink)]/75 mt-1">
-                  {SHABBAT.time} · {SHABBAT.place}
-                </p>
-              </div>
-            </div>
-            <a
-              href={CONTACT.facebook}
-              target="_blank"
-              rel="noreferrer"
-              className="sms-btn sms-btn-outline !px-6 !py-3.5 shrink-0"
-            >
-              Watch live on Facebook
-            </a>
-          </article>
-
-          {upcoming.map((event, index) => (
-            <EventCard key={event.title} event={event} index={index} />
-          ))}
-
-          <div className="sms-reveal flex flex-wrap items-center justify-between gap-4 rounded-[1.5rem] bg-[var(--color-pacific)] px-7 py-6 md:px-10 text-white">
-            <p className="text-[1.18rem]">
-              See every service, class and celebration on the calendar.
-            </p>
-            <a
-              href={CALENDAR_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="sms-btn sms-btn-primary"
-            >
-              <Calendar className="h-4.5 w-4.5" />
-              Open the calendar
-            </a>
-          </div>
-
-          {past.length > 0 && (
-            <div className="pt-8">
-              <p className="sms-eyebrow mb-5 sms-reveal">Recent events</p>
-              <div className="space-y-6">
-                {past.map((event, index) => (
-                  <EventCard
-                    key={event.title}
-                    event={event}
-                    past
-                    index={index}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
+      <UpcomingEvents />
+      <RecentEvents />
     </PageLayout>
   );
 }

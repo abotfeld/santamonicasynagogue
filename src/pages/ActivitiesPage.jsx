@@ -108,6 +108,16 @@ export function ActivitiesPage({ section }) {
         imageAlt="Congregants gathered in a circle in the courtyard for a celebration"
       />
 
+      <ClubsSections />
+    </PageLayout>
+  );
+}
+
+// Clubs and groups: the tiles and every club section. Also used on the
+// Community page.
+export function ClubsSections() {
+  return (
+    <>
       {/* Activity tiles, each jumps to its section below */}
       <section className="bg-[var(--color-sand)] pt-4 pb-14">
         <div className="container grid gap-4 grid-cols-2 md:grid-cols-4">
@@ -431,6 +441,6 @@ export function ActivitiesPage({ section }) {
           </article>
         </div>
       </section>
-    </PageLayout>
+    </>
   );
 }

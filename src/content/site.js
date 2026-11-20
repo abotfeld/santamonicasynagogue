@@ -51,12 +51,11 @@ export const LINKS = {
 export const NAV_LINKS = [
   { label: "About Us", href: "/about-us" },
   { label: "Worship", href: "/worship" },
-  { label: "Holocaust Torah", href: "/our-holocaust-torah" },
   { label: "Our Rabbis", href: "/rabbi-shira" },
-  { label: "Activities", href: "/activities" },
-  { label: "Education", href: "/education" },
+  // Events, Activities and Education share one page (Nov 2026).
+  // The Holocaust Torah is on the Worship page and has its own page too.
+  { label: "Community", href: "/community" },
   { label: "Calendar", href: LINKS.calendar },
-  { label: "Events", href: "/events" },
   { label: "Join", href: "/join" },
   { label: "Contact", href: "/contact" },
 ];
@@ -73,6 +72,8 @@ export const SHULCLOUD_PAGES = {
   "/activities": "https://www.thesms.org/activities.html",
   "/education": "https://www.thesms.org/education5.html",
   "/events": "https://www.thesms.org/events.html",
+  // Community lives on the ShulCloud events page.
+  "/community": "https://www.thesms.org/events.html",
   "/join": "https://www.thesms.org/join.html",
   // Contact uses ShulCloud's own contact form on thesms.org.
   "/contact": "https://www.thesms.org/contact-us",
