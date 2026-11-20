@@ -129,7 +129,7 @@ export const DOORS = [
     hebrew: "תּוֹרָה",
     blurb: "Hebrew, liturgy, and Torah with Rabbi Shira.",
     cta: "See the schedule",
-    href: "#learning",
+    href: "/education",
   },
   {
     key: "community",
@@ -137,7 +137,7 @@ export const DOORS = [
     hebrew: "קְהִלָּה",
     blurb: "Softball, wine club, movie mavens, and more.",
     cta: "Find your group",
-    href: "#community",
+    href: "/activities",
   },
   {
     key: "give",
