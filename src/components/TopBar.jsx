@@ -106,14 +106,12 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
               ))}
             </nav>
             <div className="flex items-center gap-1.5 sm:gap-2.5">
-              <a
-                href={LINKS.intake}
-                target="_blank"
-                rel="noreferrer"
+              <SmartLink
+                href="/join"
                 className={`hidden sm:inline-flex lg:hidden 2xl:inline-flex sms-btn whitespace-nowrap !px-5 !py-2.5 !text-[1.02rem] ${solid ? "sms-btn-solid" : "sms-btn-ghost"}`}
               >
                 Join Us
-              </a>
+              </SmartLink>
               <a
                 href={LINKS.donate}
                 target="_blank"
