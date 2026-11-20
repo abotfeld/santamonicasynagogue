@@ -41,24 +41,17 @@ export function JoinPage() {
               </a>
               .
             </p>
-            {/* These two buttons go to the ShulCloud forms. Keep the links as they are. */}
+            {/* Join Now opens the short New Member Information form in ShulCloud
+                (name, email, phone). The old 2023-24 membership form is inactive. */}
             <div className="flex flex-wrap gap-3.5 pt-4">
               <a
-                href={LINKS.join}
+                href={LINKS.newMemberIntake}
                 target="_blank"
                 rel="noreferrer"
                 className="sms-btn sms-btn-primary !text-[1.06rem] !px-7 !py-4"
               >
                 Join Now
                 <ArrowRight className="h-4.5 w-4.5" />
-              </a>
-              <a
-                href={LINKS.newMemberIntake}
-                target="_blank"
-                rel="noreferrer"
-                className="sms-btn sms-btn-ghost !text-[1.06rem] !px-7 !py-4"
-              >
-                New Member Intake Form
               </a>
             </div>
           </>

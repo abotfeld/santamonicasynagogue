@@ -29,6 +29,9 @@ const bodyLight =
 const linkLight =
   "text-[var(--color-cyan-light)] underline underline-offset-4 decoration-[var(--color-turquoise)]/60 hover:text-white";
 
+// High Holy Days 2026 are over; turn on again for next year's registration.
+const HHD_REGISTRATION_OPEN = false;
+
 export function WorshipPage({ section }) {
   return (
     <PageLayout scrollTo={section}>
@@ -234,15 +237,20 @@ export function WorshipPage({ section }) {
                   socially.
                 </p>
               </div>
-              <a
-                href={LINKS.hhd}
-                target="_blank"
-                rel="noreferrer"
-                className="sms-btn sms-btn-coral sms-btn-coral-pulse !px-8 !py-4 !text-[1.06rem] mt-8"
-              >
-                {LINKS.hhdLabel}
-                <ArrowRight className="h-4.5 w-4.5" />
-              </a>
+              {/* Registration button: shown only while High Holy Days
+                  registration is open. Set HHD_REGISTRATION_OPEN to true and
+                  update the hhd link in settings.json next season. */}
+              {HHD_REGISTRATION_OPEN && (
+                <a
+                  href={LINKS.hhd}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="sms-btn sms-btn-coral sms-btn-coral-pulse !px-8 !py-4 !text-[1.06rem] mt-8"
+                >
+                  {LINKS.hhdLabel}
+                  <ArrowRight className="h-4.5 w-4.5" />
+                </a>
+              )}
             </div>
             <figure
               className="sms-reveal sms-tile group relative rounded-[1.7rem] overflow-hidden"

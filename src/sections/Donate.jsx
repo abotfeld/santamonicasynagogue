@@ -1,4 +1,5 @@
 import { ArrowRight, HeartHandshake } from "lucide-react";
+import { SmartLink } from "../components/SmartLink";
 import { ScrollMark } from "../components/ScrollMark";
 import { WaveDivider } from "../components/WaveDivider";
 import { LINKS } from "../content/site";
@@ -74,15 +75,13 @@ export function Donate() {
                   Give
                   <HeartHandshake className="h-5 w-5" />
                 </a>
-                <a
-                  href={LINKS.intake}
-                  target="_blank"
-                  rel="noreferrer"
+                <SmartLink
+                  href="/join"
                   className="sms-btn sms-btn-coral !w-full !justify-center !px-8 !py-5 !text-[1.16rem] text-center leading-snug"
                 >
                   Support Us Through Membership
                   <ArrowRight className="h-5 w-5 shrink-0" />
-                </a>
+                </SmartLink>
                 <a
                   href={LINKS.login}
                   target="_blank"

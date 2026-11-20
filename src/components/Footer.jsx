@@ -72,17 +72,7 @@ export function Footer() {
                   rel="noreferrer"
                   className="hover:text-[var(--color-cyan-light)] transition-colors"
                 >
-                  New Member Information
-                </a>
-              </li>
-              <li>
-                <a
-                  href={LINKS.join}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[var(--color-cyan-light)] transition-colors"
-                >
-                  Membership
+                  Join Now
                 </a>
               </li>
               <li>

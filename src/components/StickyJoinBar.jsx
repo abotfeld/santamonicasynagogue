@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SmartLink } from "../components/SmartLink";
 import { ArrowRight, HeartHandshake } from "lucide-react";
 import { LINKS } from "../content/site";
 import { isEmbedded } from "../lib/embed";
@@ -31,16 +32,14 @@ export function StickyJoinBar() {
             Shabbat is Friday at 6:00pm — everyone is welcome.
           </p>
           <div className="flex items-center gap-3 w-full md:w-auto">
-            <a
-              href={LINKS.intake}
-              target="_blank"
-              rel="noreferrer"
+            <SmartLink
+              href="/join"
               tabIndex={visible ? 0 : -1}
               className="sms-btn sms-btn-primary flex-1 md:flex-none !justify-center !px-6 !py-3.5 !text-[1.06rem]"
             >
               Join us
               <ArrowRight className="h-4.5 w-4.5" />
-            </a>
+            </SmartLink>
             <a
               href={LINKS.donate}
               target="_blank"
