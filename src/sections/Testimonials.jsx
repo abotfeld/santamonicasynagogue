@@ -50,7 +50,7 @@ export function Testimonials() {
                 {TESTIMONIALS.map((testimonial, index) => (
                   <figure
                     key={testimonial.who}
-                    className={`sms-reveal sms-seaglass-dark rounded-[1.35rem] p-7 ${index % 2 === 1 ? "sm:mt-8" : ""}`}
+                    className={`sms-reveal sms-seaglass-dark rounded-[1.35rem] p-7 ${index === TESTIMONIALS.length - 1 && TESTIMONIALS.length % 2 === 1 ? "sm:col-span-2" : ""}`}
                     data-reveal-delay={index * 80}
                   >
                     <div className="flex items-center justify-between mb-4">
