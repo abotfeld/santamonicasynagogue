@@ -1,8 +1,9 @@
 import { Quote } from "lucide-react";
+import { SmartLink } from "../components/SmartLink";
 import { FiveStars } from "../components/FiveStars";
 import { VideoCard } from "../components/VideoCard";
 import { WaveDivider } from "../components/WaveDivider";
-import { CONTACT, LINKS, TESTIMONIALS, VIDEOS } from "../content/site";
+import { CONTACT, TESTIMONIALS, VIDEOS } from "../content/site";
 
 export function Testimonials() {
   return (
@@ -102,22 +103,9 @@ export function Testimonials() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <a
-                  href={LINKS.intake}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sms-btn sms-btn-primary"
-                >
-                  New member intake
-                </a>
-                <a
-                  href={LINKS.join}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sms-btn sms-btn-ghost"
-                >
-                  Membership details
-                </a>
+                <SmartLink href="/join" className="sms-btn sms-btn-primary">
+                  Join Us
+                </SmartLink>
               </div>
             </div>
           </div>
