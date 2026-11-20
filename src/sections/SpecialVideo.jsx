@@ -1,5 +1,5 @@
 import { VideoCard } from "../components/VideoCard";
-import { CONTACT, VIDEOS } from "../content/site";
+import { VIDEOS } from "../content/site";
 
 export function SpecialVideo() {
   return (
@@ -40,21 +40,8 @@ export function SpecialVideo() {
               <p className="text-white/78 text-[1.2rem] leading-[1.62] mb-4">
                 We're local. We're Reform. We're Jewish!
               </p>
-              <p className="text-white/78 text-[1.2rem] leading-[1.62] mb-8">
+              <p className="text-white/78 text-[1.2rem] leading-[1.62]">
                 Tap for sound 🔊
-              </p>
-              <p className="text-white/45 text-[1rem] mt-6">
-                Want to start by watching a Shabbat service from home? Join us
-                every Friday at 6:00pm — we stream{" "}
-                <a
-                  href={CONTACT.facebook}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[var(--color-cyan-light)] underline underline-offset-2 hover:text-white transition-colors"
-                >
-                  live on Facebook
-                </a>
-                .
               </p>
             </div>
           </div>
