@@ -6,6 +6,7 @@ import {
   Users,
 } from "lucide-react";
 import { ScrollMark } from "../components/ScrollMark";
+import { SmartLink } from "../components/SmartLink";
 import { WaveDivider } from "../components/WaveDivider";
 import { DOORS } from "../content/site";
 
@@ -34,14 +35,11 @@ export function Doors() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:items-start">
             {DOORS.map((door, index) => {
               const Icon = DOOR_ICONS[door.key];
-              const external = door.href.startsWith("http");
               const offsets = ["lg:mt-0", "lg:mt-10", "lg:mt-3", "lg:mt-14"];
               return (
-                <a
+                <SmartLink
                   key={door.key}
                   href={door.href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noreferrer" : undefined}
                   className={`sms-reveal sms-lift sms-glass-card group flex flex-col rounded-[1.35rem] p-7 overflow-hidden ${offsets[index]}`}
                   data-reveal-delay={index * 70}
                 >
@@ -63,7 +61,7 @@ export function Doors() {
                     {door.cta}
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </span>
-                </a>
+                </SmartLink>
               );
             })}
           </div>
