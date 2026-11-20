@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { SmartLink } from "../components/SmartLink";
 import { Clock } from "lucide-react";
 import { PhotoTile } from "../components/PhotoTile";
 import { ScrollMark } from "../components/ScrollMark";
 import { StarOfDavid } from "../components/StarOfDavid";
 import { WaveDivider } from "../components/WaveDivider";
-import { LINKS, PHOTOS } from "../content/site";
+import { PHOTOS } from "../content/site";
 
 export function HeroCollage() {
   const [scrollY, setScrollY] = useState(0);
@@ -91,14 +92,12 @@ export function HeroCollage() {
                 Santa Monica or new to a synagogue, you're welcome here.
               </p>
               <div className="flex flex-wrap gap-3.5">
-                <a
-                  href={LINKS.intake}
-                  target="_blank"
-                  rel="noreferrer"
+                <SmartLink
+                  href="/join"
                   className="sms-btn sms-btn-primary !text-[1.02rem] !px-7 !py-4"
                 >
                   Explore membership
-                </a>
+                </SmartLink>
                 <a
                   href="#welcome"
                   className="sms-btn sms-btn-coral !text-[1.02rem] !px-7 !py-4"
