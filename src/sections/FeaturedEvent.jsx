@@ -63,7 +63,7 @@ export function FeaturedEvent() {
                 Coming up
               </p>
               <h2 className="sms-h2 text-white mb-5">
-                <span className="sms-swash sms-swash-bright">
+                <span className="sms-swash sms-swash-wrap sms-swash-bright">
                   {event.title}
                 </span>
               </h2>
