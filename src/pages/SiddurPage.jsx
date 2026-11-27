@@ -56,10 +56,10 @@ export function SiddurPage() {
         intro={
           <>
             <p>
-              Our congregation is getting beautiful new Shabbat evening
-              siddurim, <em>Mishkan T'filah</em>. These are the books we will
-              hold in our hands every Friday night, when we come together to
-              pray, to sing and to welcome Shabbat.
+              We have beautiful new Shabbat evening siddurim,{" "}
+              <em>Mishkan T'filah</em>! These are the books we hold in our
+              hands every Friday night, when we come together to pray, to sing
+              and to welcome Shabbat.
             </p>
             <p>
               The new siddurim were made possible by the{" "}
