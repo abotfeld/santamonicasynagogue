@@ -115,7 +115,9 @@ function EventCard({ event, past, index }) {
               <ArrowRight className="h-4.5 w-4.5" />
             </a>
           )}
-          {event.loginHref && !past && <MemberLoginNote href={event.loginHref} />}
+          {event.loginHref && !past && (
+            <MemberLoginNote href={event.loginHref} />
+          )}
         </div>
       </div>
     </article>
@@ -131,8 +133,9 @@ function splitEvents() {
 }
 
 // Weekly Shabbat, upcoming events and the calendar link.
-// Also used on the Community page.
-export function UpcomingEvents({ id }) {
+// Also used on the Community page, without the Shabbat card (Shabbat lives
+// on the Worship page).
+export function UpcomingEvents({ id, showShabbat = true }) {
   const { upcoming } = splitEvents();
   return (
     <section
@@ -141,34 +144,36 @@ export function UpcomingEvents({ id }) {
     >
       <div className="container space-y-6">
         {/* Weekly Shabbat */}
-        <article className="sms-reveal sms-plain-card sms-plain-card-accent rounded-[1.5rem] p-7 md:p-9 flex flex-col md:flex-row md:items-center gap-6 justify-between">
-          <div className="flex items-center gap-5">
-            <div className="flex flex-col items-center justify-center h-20 w-20 rounded-2xl shrink-0 bg-[var(--color-cyan-pale)] text-[var(--color-ocean)]">
-              <span className="text-[0.85rem] font-bold uppercase tracking-widest">
-                {SHABBAT.month}
-              </span>
-              <span className="font-[family-name:var(--font-display)] text-[1.7rem] font-semibold leading-none">
-                {SHABBAT.day}
-              </span>
+        {showShabbat && (
+          <article className="sms-reveal sms-plain-card sms-plain-card-accent rounded-[1.5rem] p-7 md:p-9 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+            <div className="flex items-center gap-5">
+              <div className="flex flex-col items-center justify-center h-20 w-20 rounded-2xl shrink-0 bg-[var(--color-cyan-pale)] text-[var(--color-ocean)]">
+                <span className="text-[0.85rem] font-bold uppercase tracking-widest">
+                  {SHABBAT.month}
+                </span>
+                <span className="font-[family-name:var(--font-display)] text-[1.7rem] font-semibold leading-none">
+                  {SHABBAT.day}
+                </span>
+              </div>
+              <div>
+                <h3 className="font-[family-name:var(--font-display)] text-[1.7rem] md:text-[2rem] font-semibold text-[var(--color-pacific)] leading-tight">
+                  {SHABBAT.title}
+                </h3>
+                <p className="text-[1.1rem] text-[var(--color-ink)]/75 mt-1">
+                  {SHABBAT.time} · {SHABBAT.place}
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-[family-name:var(--font-display)] text-[1.7rem] md:text-[2rem] font-semibold text-[var(--color-pacific)] leading-tight">
-                {SHABBAT.title}
-              </h3>
-              <p className="text-[1.1rem] text-[var(--color-ink)]/75 mt-1">
-                {SHABBAT.time} · {SHABBAT.place}
-              </p>
-            </div>
-          </div>
-          <a
-            href={CONTACT.facebook}
-            target="_blank"
-            rel="noreferrer"
-            className="sms-btn sms-btn-outline !px-6 !py-3.5 shrink-0"
-          >
-            Watch live on Facebook
-          </a>
-        </article>
+            <a
+              href={CONTACT.facebook}
+              target="_blank"
+              rel="noreferrer"
+              className="sms-btn sms-btn-outline !px-6 !py-3.5 shrink-0"
+            >
+              Watch live on Facebook
+            </a>
+          </article>
+        )}
 
         {upcoming.map((event, index) => (
           <EventCard key={event.title} event={event} index={index} />
