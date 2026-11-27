@@ -11,6 +11,7 @@ import { Home } from "./pages/Home";
 import { JoinPage } from "./pages/JoinPage";
 import { NotFound } from "./pages/NotFound";
 import { RabbiPage } from "./pages/RabbiPage";
+import { SiddurPage } from "./pages/SiddurPage";
 import { ReviewNotes } from "./pages/ReviewNotes";
 import { WorshipPage } from "./pages/WorshipPage";
 
@@ -54,6 +55,8 @@ function Router() {
       <Route path="/membership" component={JoinPage} />
       <Route path="/join" component={JoinPage} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/dedicate-a-siddur" component={SiddurPage} />
+      <Route path="/siddur" component={SiddurPage} />
       <Route path="/concept-b" component={Home} />
       <Route path="/concept-a" component={ConceptA} />
       <Route path="/review" component={ReviewNotes} />

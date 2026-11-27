@@ -24,6 +24,7 @@
     "newMemberIntake": "https://www.thesms.org/form/new-member-info",
     "contactForm": "https://www.thesms.org/contact-us",
     "memberLogin": "https://www.thesms.org/login.php",
-    "calendar": "https://www.thesms.org/cal.php"
+    "calendar": "https://www.thesms.org/cal.php",
+    "dedicateSiddur": "https://www.thesms.org/form/dedicate-a-siddur"
   }
 }

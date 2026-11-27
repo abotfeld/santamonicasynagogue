@@ -377,3 +377,6 @@ content:
           - name: calendar
             label: Calendar
             type: string
+          - name: dedicateSiddur
+            label: Dedicate a Siddur form
+            type: string
