@@ -57,7 +57,7 @@ export function CommunityPage({ section }) {
         </div>
       </nav>
 
-      <UpcomingEvents id="upcoming" />
+      <UpcomingEvents id="upcoming" showShabbat={false} />
       <ClassesSection id="classes" />
 
       <div id="clubs" className="scroll-mt-28 bg-[var(--color-sand)] pt-6">
