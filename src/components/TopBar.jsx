@@ -23,6 +23,8 @@ function useLoggedIn() {
 }
 
 const ACCOUNT_URL = "https://www.thesms.org/member";
+// ShulCloud's own log out address (Brian asked for a way to log out, Nov 2026).
+const LOGOUT_URL = "https://www.thesms.org/logout.php";
 
 export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
   const loggedIn = useLoggedIn();
@@ -62,13 +64,24 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
             </a>
           </div>
           {isEmbedded() && (
-            <a
-              href={loginHref}
-              target="_top"
-              className="md:hidden font-semibold underline decoration-[var(--color-turquoise)]/60 underline-offset-4 hover:text-[var(--color-cyan-light)] transition-colors"
-            >
-              {loginLabel}
-            </a>
+            <span className="md:hidden flex items-center gap-4">
+              <a
+                href={loginHref}
+                target="_top"
+                className="font-semibold underline decoration-[var(--color-turquoise)]/60 underline-offset-4 hover:text-[var(--color-cyan-light)] transition-colors"
+              >
+                {loginLabel}
+              </a>
+              {loggedIn && (
+                <a
+                  href={LOGOUT_URL}
+                  target="_top"
+                  className="underline decoration-white/40 underline-offset-4 hover:text-[var(--color-cyan-light)] transition-colors"
+                >
+                  Log Out
+                </a>
+              )}
+            </span>
           )}
           <div className="hidden md:flex items-center gap-6 whitespace-nowrap">
             {variantSwitcher}
@@ -79,6 +92,15 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
                 className="font-semibold hover:text-[var(--color-cyan-light)] transition-colors"
               >
                 {loginLabel}
+              </a>
+            )}
+            {isEmbedded() && loggedIn && (
+              <a
+                href={LOGOUT_URL}
+                target="_top"
+                className="hover:text-[var(--color-cyan-light)] transition-colors"
+              >
+                Log Out
               </a>
             )}
             <span className="flex items-center gap-2">
@@ -155,6 +177,15 @@ export function TopBar({ overHero = true, variantSwitcher, showNav = false }) {
                 >
                   {loginLabel}
                 </a>
+                {loggedIn && (
+                  <a
+                    href={LOGOUT_URL}
+                    target="_top"
+                    className="py-3 text-[1.02rem] font-medium text-[var(--color-ink)]/70"
+                  >
+                    Log Out
+                  </a>
+                )}
               </nav>
             </div>
           )}
