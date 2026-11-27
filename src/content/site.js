@@ -44,6 +44,7 @@ export const LINKS = {
   login: settings.links.memberLogin,
   newMemberIntake: settings.links.newMemberIntake,
   calendar: settings.links.calendar,
+  dedicateSiddur: settings.links.dedicateSiddur,
 };
 
 // Menu bar and footer "Explore" links. Paths starting with "/" are pages on
@@ -75,6 +76,7 @@ export const SHULCLOUD_PAGES = {
   // Community lives on the ShulCloud events page.
   "/community": "https://www.thesms.org/events.html",
   "/join": "https://www.thesms.org/join.html",
+  "/dedicate-a-siddur": "https://www.thesms.org/siddur.html",
   // Contact uses ShulCloud's own contact form on thesms.org.
   "/contact": "https://www.thesms.org/contact-us",
   // Older names for the same pages (the first ShulCloud embed codes use them).
