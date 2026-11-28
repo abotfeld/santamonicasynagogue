@@ -3,7 +3,7 @@ import { PageHero } from "../components/PageHero";
 import { PageLayout } from "../components/PageLayout";
 import { CONTACT, LINKS } from "../content/site";
 
-// Dedicate a Siddur (Steve Litvak Memorial Fund), Nov 2026.
+// Dedicate a Siddur (Steve Litvack Memorial Fund), Nov 2026.
 // The button opens the ShulCloud form /form/dedicate-a-siddur in the same
 // window, so members stay logged in and nobody gets lost in a new tab.
 // Wording follows the Weekly of November 27, 2026.
@@ -46,7 +46,7 @@ export function SiddurPage() {
   return (
     <PageLayout>
       <PageHero
-        eyebrow="Steve Litvak Memorial Fund"
+        eyebrow="Steve Litvack Memorial Fund"
         title={
           <>
             Dedicate a{" "}
@@ -63,8 +63,8 @@ export function SiddurPage() {
             </p>
             <p>
               The new siddurim were made possible by the{" "}
-              <strong className="text-white">Steve Litvak Memorial Fund</strong>
-              , established by Gail Litvak in loving memory of her husband,
+              <strong className="text-white">Steve Litvack Memorial Fund</strong>
+              , established by Gail Litvack in loving memory of her husband,
               Steve.
             </p>
             <p>
@@ -89,7 +89,7 @@ export function SiddurPage() {
             <figure className="sms-reveal mx-auto w-full max-w-[26rem] lg:sticky lg:top-28">
               <img
                 src="/photos/sms-siddur-bookplate.jpg"
-                alt="Example of a bookplate: This Siddur is a gift from Miriam Rosen, in honor of her mother, Esther Kaplan. All of the wise-hearted people contributed to the work of the Mishkan. Exodus 36:8. Steve Litvak Memorial Fund."
+                alt="Example of a bookplate: This Siddur is a gift from Miriam Rosen, in honor of her mother, Esther Kaplan. All of the wise-hearted people contributed to the work of the Mishkan. Exodus 36:8. Steve Litvack Memorial Fund."
                 width="840"
                 height="1064"
                 className="w-full h-auto rounded-[0.6rem] shadow-[0_24px_50px_-24px_rgba(11,58,91,0.45)] border border-[#e6dcc8]"
